@@ -1,1 +1,100 @@
-haloooo
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Breathing Pixel Ring</title>
+  <style>
+    body {
+        background: #cfe5e5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        image-rendering: pixelated;
+    }
+
+    .container {
+        position: relative;
+        width: 128px;
+        height: 128px;
+    }
+
+    .core {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+    }
+
+    .core img {
+        width: 200px;
+        height: 250px;
+        margin-left: 0.4rem;
+        image-rendering: pixelated;
+    }
+
+    .ring {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        opacity: 0;
+    }
+
+    .lighter-blue {
+        background: #a6e2d6;
+        transform: scale(0.8);
+        z-index: 3;
+        animation: lightRing 3s steps(1, end) infinite;
+        image-rendering: pixelated;
+    }
+
+    .dark-blue {
+        background: #85D1D4;
+        transform: scale(1.1);
+        z-index: 2;
+        animation: darkRing 3s steps(1, end) infinite;
+    }
+
+    .purple {
+        background: #97B6E0;
+        transform: scale(1.4);
+        z-index: 1;
+        animation: purpleRing 3s steps(1, end) infinite;
+    }
+
+    @keyframes lightRing {
+        0%, 24% { opacity: 1; }
+        25%, 74% { opacity: 1; }
+        85%, 100% { opacity: 0; }
+    }
+
+    @keyframes darkRing {
+        0%, 20% { opacity: 0; }
+        21%, 74% { opacity: 1; }
+        75%, 100% { opacity: 0; }
+    }
+
+    @keyframes purpleRing {
+        0%, 49% { opacity: 0; }
+        50%, 64% { opacity: 1; }
+        65%, 100% { opacity: 0; }
+    }
+
+    
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ring lighter-blue"></div>
+        <div class="ring dark-blue"></div>
+        <div class="ring purple"></div>
+        <div class="core">
+            <img src="../assets/naked-alita.png" alt="Core Circle" />
+        </div>
+    </div>
+</body>
+</html>
