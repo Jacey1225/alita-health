@@ -1,0 +1,112 @@
+body {
+    background-image: url('../../assets/clean-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.common-text {
+    font-family: 'Micro 5', sans-serif;
+    font-size: 8em;
+}
+
+.container {
+    position: relative;
+    width: 128px;
+    height: 128px;
+}
+
+.core {
+    position: absolute;
+    margin-left: 33rem;
+    margin-top: -4rem;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.core img {
+    width: 250px;
+    height: 300px;
+    image-rendering: pixelated;
+}
+
+.ring {
+    position: absolute;
+    margin-top: 1rem;
+    margin-left: 36.5rem;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.lighter-blue {
+    background: #a6e2d6;
+    transform: scale(1.5);
+    z-index: 3;
+    animation: lightRing 3s steps(1, end) infinite;
+    image-rendering: pixelated;
+}
+
+.dark-blue {
+    background: #85D1D4;
+    transform: scale(2);
+    z-index: 2;
+    animation: darkRing 3s steps(1, end) infinite;
+}
+
+.purple {
+    background: #97B6E0;
+    transform: scale(2.5);
+    z-index: 1;
+    animation: purpleRing 3s steps(1, end) infinite;
+}
+
+@keyframes lightRing {
+    0%, 24% { opacity: 1; }
+    25%, 74% { opacity: 1; }
+    85%, 100% { opacity: 0; }
+}
+
+@keyframes darkRing {
+    0%, 20% { opacity: 0; }
+    21%, 74% { opacity: 1; }
+    75%, 100% { opacity: 0; }
+}
+
+@keyframes purpleRing {
+    0%, 49% { opacity: 0; }
+    50%, 64% { opacity: 1; }
+    65%, 100% { opacity: 0; }
+}
+
+.logo {
+    font-size: 4em;
+    margin-left: 1rem;
+    margin-top: -0.5rem;
+}
+
+.top-elem {
+    display: flex;
+}
+
+#avatar {
+    width: 60px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* END OF TEMPLATE */
+
+#mic {
+    height: 210px;
+    width: 210px;
+}
+
+#mic-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
+}
