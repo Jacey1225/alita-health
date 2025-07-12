@@ -8,10 +8,9 @@ from sklearn.preprocessing import MinMaxScaler
 nlp = spacy.load("en_core_web_sm")
 
 class DataProcessor:
-    def __init__(self, filename="data/conversational_dataset.csv"):
-        self.filename = filename
+    def __init__(self, data):
         self.tokenizer = T5Tokenizer.from_pretrained("t5-base")
-        self.data = pd.read_csv(self.filename)
+        self.data = data
         self.text_input = self.data["text input"]
         self.desired_output = self.data["desired response"]
         self.nlp = nlp
