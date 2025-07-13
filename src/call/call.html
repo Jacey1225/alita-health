@@ -9,7 +9,9 @@
 </head>
 <body>
     <div class="top-elem">
-        <p class="common-text logo">ALITA</p>
+        <a href="../dashboard/dashboard.html">
+            <p class="common-text logo">ALITA</p>
+        </a>
         <img src="../../assets/female.png" id="avatar">
     </div>
     <div class="main-content">
@@ -25,14 +27,17 @@
             <img src="../../assets/mic.png" id="mic">
         </div>
     </div>
-    <div id="button-container">
-        <button id="toggleChat">Show Chat</button>
+    <div id="toggleChat" class="button-container">
+        <div class="button-content wiggle">
+            <img src="../../assets/button.png" id="button-img">
+            <p class="common-text show-trans">Show Transcription</p>
+        </div>
     </div>
     <div class="chat-box">
         <div id="header-container">
             <div id="header">
-                <p class="common-text transcription">Transcription</p>
-                <img src="../../assets/exit.png" class="exit" id="closeChat">
+                <div class="common-text transcription" id="typewriter"></div>
+                <img src="../../assets/updated-exit.png" class="exit" id="closeChat">
             </div>
         </div>
     </div>
