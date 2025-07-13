@@ -1,17 +1,11 @@
 import os
-import torch
 from flask import Flask, request, jsonify
-from transformers import T5Tokenizer
-from src.data_processing import DataProcessor
-from src.model_setup import ModelSetup
 import pandas as pd
+from src.get_text import GenerateText
+from src.handle_users.handle_users import SignUp, Login
 
 # ========== 🔧 Setup ==========
 app = Flask(__name__)
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-# Load tokenizer & model
-tokenizer = T5Tokenizer.from_pretrained("t5-base")
 
 # Dummy row to help initialize processor and model
 dummy_row = {
@@ -35,14 +29,6 @@ dummy_row = {
     "Adherence to Treatment (%)": [80]
 }
 dummy_df = pd.DataFrame(dummy_row)
-
-# Initialize processor and model
-processor = DataProcessor(dummy_df)
-model = ModelSetup(processor)
-model.load_state_dict(torch.load("model/medical_t5_model.pth", map_location=device))
-model.to(device)
-model.eval()
-
 # ========== 📡 ROUTES ==========
 
 @app.route("/")
@@ -60,46 +46,11 @@ def generate_response():
 
     # === 2. Prepare input ===
     try:
-        # Build input dataframe (1-row)
         input_data = dummy_df.copy()
         input_data.loc[0, "text input"] = message
 
-        # Optionally override any numerical fields if sent in JSON
-        for col in input_data.columns:
-            if col in data and col != "text input" and col != "desired response":
-                input_data.loc[0, col] = data[col]
-
-        # Process input
-        user_processor = DataProcessor(input_data)
-        input_ids, attention_mask = user_processor.process_text_input()
-        numerical_features = user_processor.process_numerical_features()
-        numerical_features = user_processor.scale_numerical_features()
-
-        input_ids = input_ids.to(device)
-        attention_mask = attention_mask.to(device)
-        numerical_features = numerical_features.to(device)
-
-        # === 3. Forward pass ===
-        with torch.no_grad():
-            output_dict = model.forward(
-                input_ids=input_ids,
-                attention_mask=attention_mask,
-                numerical_features=numerical_features,
-                labels=None  # Inference mode
-            )
-
-            final_state = output_dict["final state"]
-            attention_mask = output_dict["attention mask"]
-
-            # Generate response using decoder
-            generated_ids = model.t5_model.generate(
-                encoder_outputs=(final_state,),
-                attention_mask=attention_mask,
-                max_length=150,
-                num_beams=5,
-                early_stopping=True
-            )
-            response_text = tokenizer.decode(generated_ids[0], skip_special_tokens=True)
+        generator = GenerateText()
+        response_text = generator.generate(input_data["text input"][0], exclusive_parameters=input_data.drop(columns=["text input", "desired response"]).iloc[0].to_dict())
 
         return jsonify({
             "message": message,
@@ -108,6 +59,35 @@ def generate_response():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+@app.route("/signup", methods=["POST"])
+def signup():
+    data = request.get_json()
+    username = data.get("username")
+    password = data.get("password")
+    survey_data = data.get("survey_data")
+    handler = SignUp(username, password, survey_data)
+    try:
+        handler.add_survey_data()
+        handler.save()
+        return jsonify({"message": f"User '{username}' signed up successfully."}), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/login", methods=["POST"])
+def login():
+    data = request.get_json()
+    username = data.get("username")
+    password = data.get("password")
+    handler = Login(username, password)
+    if handler.authenticate():
+        user_data = handler.get_user_data()
+        if user_data:
+            return jsonify({"message": f"User '{username}' logged in successfully.", "data": user_data}), 200
+        else:
+            return jsonify({"error": "User data not found"}), 404
+    else:
+        return jsonify({"error": "Invalid credentials"}), 401
 
 # ========== 🏁 Run Server ==========
 if __name__ == "__main__":

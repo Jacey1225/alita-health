@@ -21,18 +21,18 @@ class DataProcessor:
         attention_mask = []
         for text in self.text_input:
             if pd.notna(text):
-                encodings = self.tokenizer(text, padding='max_length', truncation=True, max_length=150, return_tensors='pt')
+                encodings = self.tokenizer(text, padding='max_length', truncation=True, max_length=300, return_tensors='pt')
                 input_ids.append(encodings["input_ids"].squeeze(0))
                 attention_mask.append(encodings["attention_mask"].squeeze(0))
             else:
-                input_ids.append(torch.zeros(150))
-                attention_mask.append(torch.zeros(150))
+                input_ids.append(torch.zeros(300))
+                attention_mask.append(torch.zeros(300))
         return torch.stack(input_ids), torch.stack(attention_mask) #shape = [batch_size, 150, 768]
     
     def process_label_output(self):
         label_ids = []
         for text in self.desired_output:
-            encodings = self.tokenizer(text, padding='max_length', truncation=True, max_length=150, return_tensors='pt')
+            encodings = self.tokenizer(text, padding='max_length', truncation=True, max_length=300, return_tensors='pt')
             label_ids.append(encodings["input_ids"].squeeze(0))
 
         return torch.stack(label_ids)

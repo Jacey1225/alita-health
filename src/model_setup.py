@@ -100,20 +100,27 @@ class ModelSetup(nn.Module):
             return None
 
 class Training():
-    def __init__(self, batch_size, epochs, filename="data/conversational_dataset.csv", training_size=0.8, validation_size=0.1):
+    def __init__(self, batch_size, epochs, filename="data/fine_tuning_dataset_2000rows_conversational_improved.csv", training_size=0.8, validation_size=0.1):
         self.batch_size = batch_size
         self.epochs = epochs
         self.filename = filename
         self.training_size = training_size
         self.validation_size = validation_size
 
+        print(f"📂 Loading improved dataset: {filename}")
         self.data = pd.read_csv(self.filename) 
+        print(f"📊 Dataset loaded: {len(self.data)} rows")
+        
         self.training_data = self.data.sample(frac=self.training_size).reset_index(drop=True)
+        print(f"🏋️ Training data: {len(self.training_data)} rows")
+        
         self.processor = DataProcessor(self.training_data)
         self.model = ModelSetup(
             processor=self.processor
         )
         self.validation_data = self.data.sample(frac=self.validation_size).reset_index(drop=True)
+        print(f"✅ Validation data: {len(self.validation_data)} rows")
+        
         self.validation_processor = DataProcessor(self.validation_data)
         self.validation_model = ModelSetup(
             processor=self.validation_processor
@@ -155,7 +162,7 @@ class Training():
             average_loss /= (len(self.model.input_ids) // self.batch_size)
             print(f"\r🎯 Average Loss for epoch {epoch}: {average_loss}", end="", flush=True)
             self.validate() 
-            if average_loss < 0.75:
+            if average_loss < 0.50:
                 print(f"\n🎉 Early stopping at epoch {epoch + 1} due to low loss.")
                 break
 
