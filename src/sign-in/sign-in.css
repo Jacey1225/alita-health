@@ -53,6 +53,10 @@ body {
 
 .title {
     margin-top: -35rem;
+    font-size: 5em;
+    margin-left: 2rem;
+    padding-bottom: 3rem;
+    padding-top: 2rem;
 }
 
 .username,
