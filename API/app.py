@@ -1,6 +1,13 @@
 import os
 from flask import Flask, request, jsonify
 import pandas as pd
+import os
+import sys
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir)
+
 from src.get_text import GenerateText  
 from src.handle_users.handle_users import SignUp, Login
 from src.journaling import UpdateJournal
@@ -11,23 +18,22 @@ app = Flask(__name__)
 
 # Dummy row 
 dummy_row = {
-    "text input": ["Hello, I'm not feeling well."],
-    "Age": [18],
-    "Gender": ["female"],
-    "Diagnosis": ["general anxiety"],
-    "Symptom Severity (1-10)": [7],
-    "Mood Score (1-10)": [4],
-    "Sleep Quality (1-10)": [3],
-    "Physical Activity (hrs/week)": [2],
-    "Medication": ["none"],
-    "Therapy Type": ["CBT"],
-    "Treatment Start Date": ["2024-01-01"],
-    "Treatment Duration (weeks)": [5],
-    "Stress Level (1-10)": [8],
-    "Outcome": ["in progress"],
-    "Treatment Progress (1-10)": [5],
-    "AI-Detected Emotional State": ["stressed"],
-    "Adherence to Treatment (%)": [80]
+    "Age": [28],
+    "Gender": ["Male"],
+    "Diagnosis": ["Generalized Anxiety Disorder"],
+    "Symptom Severity (1-10)": [6],
+    "Mood Score (1-10)": [5],
+    "Sleep Quality (1-10)": [4],
+    "Physical Activity (hrs/week)": [3],
+    "Medication": ["Alprazolam"],
+    "Therapy Type": ["Exposure Therapy"],
+    "Treatment Start Date": ["2024-02-01"],
+    "Treatment Duration (weeks)": [8],
+    "Stress Level (1-10)": [7],
+    "Outcome": ["Stable"],
+    "Treatment Progress (1-10)": [6],
+    "AI-Detected Emotional State": ["Anxious"],
+    "Adherence to Treatment (%)": [90]
 }
 dummy_df = pd.DataFrame(dummy_row)
 
@@ -40,20 +46,19 @@ def home():
 @app.route("/generate", methods=["POST"])
 def generate_response():
     data = request.get_json()
-    message = data.get("message", "").strip()
+    message = data.get("message").strip()
 
     if not message:
         return jsonify({"error": "Missing message"}), 400
 
     try:
-        input_data = dummy_df.copy()
-        input_data.loc[0, "text input"] = message
+        exc_params = dummy_df.copy()
 
         # Your friend's generator handles generation & decoding
         generator = GenerateText()
         response_text = generator.generate(
             input_text=message,
-            exclusive_parameters=input_data.drop(columns=["text input"]).iloc[0].to_dict()
+            exclusive_parameters=exc_params.iloc[0].to_dict()
         )
 
         return jsonify({
@@ -135,4 +140,4 @@ def transcribe_audio_route():
 
 # ========== 🏁 Run Server ==========
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=8080)
