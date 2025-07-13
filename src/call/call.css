@@ -181,3 +181,7 @@ body.chat-active .main-content {
 .hidden {
     display: none !important;
 }
+
+.top-elem a {
+    text-decoration: none;
+}
