@@ -1,5 +1,5 @@
 import pandas as pd
-from transformers.models.t5 import T5ForConditionalGeneration, T5Config
+from transformers.models.t5 import T5ForConditionalGeneration
 import torch
 import torch.nn as nn
 from src.data_processing import DataProcessor
@@ -122,8 +122,8 @@ class Training():
     def train(self):
         optimizer = torch.optim.Adam(
             self.model.parameters(),
-            lr=4e-5,
-            weight_decay=0.001 #L2 regularization
+            lr=4e-4,
+            weight_decay=0.003 #L2 regularization
         )
         self.model.train()
 
@@ -155,7 +155,7 @@ class Training():
             average_loss /= (len(self.model.input_ids) // self.batch_size)
             print(f"\r🎯 Average Loss for epoch {epoch}: {average_loss}", end="", flush=True)
             self.validate() 
-            if average_loss < 1.5:
+            if average_loss < 0.75:
                 print(f"\n🎉 Early stopping at epoch {epoch + 1} due to low loss.")
                 break
 

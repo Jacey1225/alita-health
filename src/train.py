@@ -11,8 +11,8 @@ def main():
     
     try:
         trainer = Training(
-            batch_size=32,
-            epochs=10
+            batch_size=8,
+            epochs=3
         )
         print("✅ Trainer initialized successfully")
         print(f"📊 Training setup:")
