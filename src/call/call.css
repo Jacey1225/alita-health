@@ -183,7 +183,8 @@ body {
     height: 40px;
     width: 40px;
     margin-top: -3.2rem;
-    margin-left: 16rem;
+    left: 93%;
+    position: fixed;
 }
 
 .exit:hover {
