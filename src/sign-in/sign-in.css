@@ -31,3 +31,16 @@ body {
     justify-content: center;
     margin-top: -5rem;
 }
+
+.subtext {
+    font-size: 2em;
+}
+
+.title,
+.option {
+    text-align: center;
+}
+
+.title {
+    margin-top: -35rem;
+}
