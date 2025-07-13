@@ -15,10 +15,13 @@ body {
 
 
 .logo {
-    position: absolute;
-    top: -20px;
-    left: 30px;
-    font-size: 3.5em;
+    font-size: 4em;
+    margin-left: 1rem;
+    margin-top: -0.5rem;
+}
+
+.top-elem a {
+    text-decoration: none;
 }
 
 .core {
@@ -29,7 +32,7 @@ body {
 
 
 .box {
-    width: 1300px;
+    width: 1200px;
     height: 650px;
     background-color: #4d6d9c;
     padding: 20px;
@@ -40,7 +43,7 @@ body {
 }
 
 .small-box {
-    width: 1260px;
+    width: 1150px;
     height: 550px; 
     background-color: #97B6E0;
     position: absolute;

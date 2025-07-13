@@ -71,12 +71,12 @@ body {
 }
 
 #input {
-    padding-right: 53%;
     background-color: transparent;
     border: none;
     font-size: 1.2em;
-    outline: none;
-    padding: 0.8rem 24rem 0.8rem 1rem; 
+    padding: 0.8rem 20rem 0.8rem 1rem; 
+    z-index: 2;
+    margin-right: 10rem;
 }
 
 #input::placeholder {
@@ -163,4 +163,61 @@ body {
     margin-left: 17rem;
     margin-top: 8rem;
     transition: transform 0.3s ease;
+}
+
+.chat-window {
+  max-height: 300px;
+  overflow-y: auto;
+  background: white;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+#chat-display {
+  height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: -25rem;
+  gap: 10px;
+  background-color: transparent; /* Make sure it's visible */
+  border: none;
+  z-index: 10; /* Bring to front */
+  position: relative; /* Required for z-index to apply */
+}
+
+.chat-message {
+  padding: 10px 15px;
+  border-radius: 12px;
+  max-width: 80%;
+  word-wrap: break-word;
+  font-size: 16px;
+}
+
+.user-msg {
+  align-self: flex-end;
+  background-color: #daf0ff;
+  color: #000;
+}
+
+.bot-msg {
+  align-self: flex-start;
+  background-color: #f1e1ff;
+  color: #000;
+}
+
+#sendBtn {
+    float: right;
+    margin-top: -2.6rem;
+    margin-right: 0.2rem;
+    font-family: 'Micro 5';
+    font-size: 2em;
+    background-color: #7ca9e9;
+    z-index: 3;
+}
+
+#sendBtn:hover {
+    cursor: pointer;
 }
