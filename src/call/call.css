@@ -103,6 +103,10 @@ body {
     width: 210px;
 }
 
+#mic:hover {
+    cursor: pointer;
+}
+
 #mic-container {
     display: flex;
     justify-content: center;
@@ -120,7 +124,6 @@ body {
 .main-content {
     flex: 1;
     padding: 20px;
-    transition: margin-right 0.3s ease;
 }
 
 .circle-wrapper {
@@ -137,7 +140,7 @@ body {
     background: #93B7DA;
     width: 800px;
     height: 450px;
-    margin-top: -34rem;
+    margin-top: -32rem;
     margin-left: auto;
     border: 15px solid #5380AC;
     border-top: 4em solid #5380AC;
@@ -163,6 +166,10 @@ body {
     margin-left: 16rem;
 }
 
+.exit:hover {
+    cursor: pointer;
+}
+
 body.chat-active .chat-box {
     display: flex;
 }
@@ -172,5 +179,5 @@ body.chat-active .main-content {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }

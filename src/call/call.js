@@ -4,9 +4,10 @@ const hiddenBtn = document.getElementById('hidden-button')
 
 toggleBtn.addEventListener('click', () => {
     document.body.classList.add('chat-active');
-    document.body.classList.add('hidden');
+    toggleBtn.classList.add('hidden');
 });
 
 closeBtn.addEventListener('click', () => {
     document.body.classList.remove('chat-active');
+    toggleBtn.classList.remove('hidden');
 });
