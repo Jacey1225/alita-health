@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Settings Page</title>
+  <link rel="stylesheet" href="settings.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Micro+5&display=swap" rel="stylesheet">
+  <style>
+    .switchable {
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-elem">
+    <a href="../dashboard/dashboard.html">
+      <p class="common-text logo">ALITA</p>
+    </a>
+  </div>
+
+  <div class="container">
+    <div class="box">
+      <div class="small-box">
+        <div class="avatar">
+          <div class="choose common-text">Avatar:</div>
+          <img src="../../assets/female.png" class="female pic avatar-img" alt="Avatar">
+          <img src="../../assets/male.png" class="male pic avatar-img" alt="Avatar">
+        </div>
+
+        <div class="daily-remainders common-text">Do you want daily remainders?</div>
+        <div class="d-or-l common-text">Dark Mode or Light Mode</div>
+
+        <div class="flex" style="display: flex; justify-content: space-between; margin-top: 30px;">
+          <div class="t-and-c common-text" style="display: inline-block;">Terms and Conditions</div>
+          <div class="privacy common-text s" style="display: inline-block; margin-top: 13px;">Privacy</div>
+        </div>
+
+        <!-- Switchable Image 1 -->
+        <img src="../../assets/light-mode.png" id="theme-toggle-1" class="mode reminder switchable" alt="Mode Switch">
+
+        <div class="emergency-hotline tiny common-text">Hotline: 988</div>
+
+        <!-- Switchable Image 2 -->
+        <div class="mode">
+          <img src="../../assets/light-mode.png" id="theme-toggle-2" class="mode mood switchable" alt="Mode Icon">
+        </div>
+      </div>
+
+      <div class="common-text text">SETTINGS</div>
+    </div>
+  </div>
+
+<script src="settings.js"></script>
+</body>
+</html>

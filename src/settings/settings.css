@@ -1,0 +1,101 @@
+body {
+    background-image: url('../../assets/clean-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+.common-text {
+    font-family: 'Micro 5', sans-serif;
+    font-size: 4.5em;
+    margin-bottom: 10px;
+    color: #132F55;
+}
+
+
+.logo {
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    font-size: 3.5em;
+}
+
+.core {
+    position: absolute;
+    top: 15em;
+    left: 14em; 
+}
+
+
+.box {
+    width: 1300px;
+    height: 650px;
+    background-color: #4d6d9c;
+    padding: 20px;
+    margin-top: 110px;
+    margin-left: 120px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.small-box {
+    width: 1260px;
+    height: 550px; 
+    background-color: #97B6E0;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    border: 10px solid #97B6E0;
+    box-sizing: border-box;
+}
+
+
+.text-box{
+    background: #9decf8;
+    margin-top: 450px;
+}
+.text{
+    margin-top: -15px;
+    margin-left: 500px;
+}
+
+.choose{
+    margin-top: 25px;
+}
+.pic {
+    position: absolute;
+    top: 10px;
+    right: 970px;
+    width: 100px;
+    height: 100px;
+}
+.female {
+    position: absolute;
+    top: 10px;
+    right: 770px;
+    width: 100px;
+    height: 100px;
+}
+.mode{
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    width: 150px;
+    height: 100px;
+    background-image: url('../../assets/mode.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.reminder{
+    top: 100px;
+}
+.mood{
+    top: 200px;
+}
+.d-or-l{
+    margin-top: 38px;
+}
+.tiny{
+    color: rgb(4, 43, 235);
+}

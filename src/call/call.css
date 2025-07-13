@@ -1,0 +1,248 @@
+body {
+    background-image: url('../../assets/clean-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.common-text {
+    font-family: 'Micro 5', sans-serif;
+    font-size: 8em;
+    color: #132F55;
+}
+
+.core {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.core img {
+    width: 250px;
+    height: 300px;
+    image-rendering: pixelated;
+}
+
+
+.ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    margin-left: -0.5rem;
+    opacity: 0;
+}
+
+.lighter-blue {
+    background: #a6e2d6;
+    transform: scale(1.5);
+    z-index: 3;
+    animation: lightRing 3s steps(1, end) infinite;
+    image-rendering: pixelated;
+}
+
+.dark-blue {
+    background: #85D1D4;
+    transform: scale(2);
+    z-index: 2;
+    animation: darkRing 3s steps(1, end) infinite;
+}
+
+.purple {
+    background: #97B6E0;
+    transform: scale(2.5);
+    z-index: 1;
+    animation: purpleRing 3s steps(1, end) infinite;
+}
+
+@keyframes lightRing {
+    0%, 24% { opacity: 1; }
+    25%, 74% { opacity: 1; }
+    85%, 100% { opacity: 0; }
+}
+
+@keyframes darkRing {
+    0%, 20% { opacity: 0; }
+    21%, 74% { opacity: 1; }
+    75%, 100% { opacity: 0; }
+}
+
+@keyframes purpleRing {
+    0%, 49% { opacity: 0; }
+    50%, 64% { opacity: 1; }
+    65%, 100% { opacity: 0; }
+}
+
+.logo {
+    font-size: 4em;
+    margin-left: 1rem;
+    margin-top: -0.5rem;
+}
+
+.top-elem {
+    display: flex;
+}
+
+.avatar{
+    margin-left: auto;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    width: 60px;
+    height: 60px;
+}
+
+/* END OF TEMPLATE */
+
+#mic {
+    height: 210px;
+    width: 210px;
+}
+
+#mic:hover {
+    cursor: pointer;
+}
+
+#mic-container {
+    display: flex;
+    justify-content: center;
+    padding-left: 1rem;
+    margin-top: 9rem;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-left: -15rem;
+}
+
+.button-container:hover {
+    cursor: pointer;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.circle-wrapper {
+    position: relative;
+    width: 120px;
+    height: 130px;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+#button-img {
+    width: 350px;
+    height: 100px;
+    margin-left: 42rem;
+    margin-top: -7rem;
+    position: absolute;
+}
+
+.show-trans {
+    position: relative;
+    font-size: 2em;
+    margin-left: 42.5rem;
+    margin-top: -5.2rem;
+}
+
+/* CHAT CODE */
+
+.chat-box {
+    background: #93B7DA;
+    width: 800px;
+    height: 450px;
+    margin-top: -35rem;
+    margin-left: auto;
+    margin-right: 2rem;
+    border: 15px solid #5380AC;
+    border-top: 4em solid #5380AC;
+    display: none; /* initially hidden */
+    flex-shrink: 0;
+    flex-direction: column;
+}
+
+#header {
+    display: flex;
+}
+
+.transcription {
+    font-size: 3em;
+    margin-left: 18rem;
+    margin-top: -3.5rem;
+}
+
+.exit {
+    height: 40px;
+    width: 40px;
+    margin-top: -4.2rem;
+    left: 93%;
+    position: fixed;
+}
+
+.exit:hover {
+    cursor: pointer;
+}
+
+body.chat-active .chat-box {
+    display: flex;
+}
+
+body.chat-active .main-content {
+    margin-right: 800px; /* same width as .chat-box */
+}
+
+.hidden {
+    display: none !important;
+}
+
+.top-elem a {
+    text-decoration: none;
+}
+
+.wiggle {
+    display: inline-block;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.wiggle:hover {
+    animation: wiggle 0.4s ease-in-out;
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-4deg); }
+    50% { transform: rotate(4deg); }
+    75% { transform: rotate(-2deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.button-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.typewriter {
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #00ffcc;
+    text-align: center;
+    margin-top: -2rem;
+    animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}

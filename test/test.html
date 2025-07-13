@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Breathing Pixel Ring</title>
+  <style>
+    body {
+        margin: 0;
+        font-family: sans-serif;
+        display: flex;
+        transition: all 0.3s ease;
+    }
+
+    .content {
+        flex: 1;
+        padding: 20px;
+        transition: margin-right 0.3s ease;
+        text-align: center;
+    }
+
+    .chat-box {
+        width: 300px;
+        background-color: #f5f5f5;
+        border-left: 1px solid #ccc;
+        display: none; /* initially hidden */
+        flex-shrink: 0;
+        flex-direction: column;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .chat-header {
+        background-color: #ddd;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+    }
+
+    .chat-body {
+        padding: 10px;
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    /* When chat is active */
+    body.chat-active .chat-box {
+        display: flex;
+    }
+
+    body.chat-active .content {
+        margin-right: 300px; /* same width as .chat-box */
+    }
+
+    .chat-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .message {
+        padding: 10px 15px;
+        border-radius: 15px;
+        font-size: 16px;
+        max-width: 75%;           /* limits width on wide screens */
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        line-height: 1.4;
+    }
+
+    /* Bot message - aligned left */
+    .message.bot {
+        background-color: #f0f0f0;
+        align-self: flex-start;
+    }
+
+    /* User message - aligned right */
+    .message.user {
+        background-color: #dcf8c6;
+        align-self: flex-end;
+    }
+  </style>
+</head>
+<body>
+    <button id="toggleChat">Show Chat</button>
+
+    <div class="content" id="mainContent">
+        <h1>Main Page Content</h1>
+        <p>This is your main content area.</p>
+    </div>
+
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <span>Chatbot</span>
+            <button id="closeChat">✕</button>
+        </div>
+        <div class="chat-container">
+            <div class="message bot">
+                Hello! How can I help you today?
+            </div>
+            <div class="message user">
+                I want to know
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('toggleChat');
+        const closeBtn = document.getElementById('closeChat');
+
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.add('chat-active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            document.body.classList.remove('chat-active');
+        });
+
+        const container = document.querySelector('.chat-container');
+
+        function addMessage(text, sender = 'bot') {
+            const div = document.createElement('div');
+            div.className = `message ${sender}`;
+            div.textContent = text;
+            container.appendChild(div);
+        }
+
+    </script>
+</body>
+</html>

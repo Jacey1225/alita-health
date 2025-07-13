@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="journal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Micro+5&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="top-elem">
+        <a href="../dashboard/dashboard.html">
+            <p class="common-text logo">ALITA</p>
+        </a>
+        <img src="../../assets/female.png" class="avatar">
+    </div>
+    <div class="sub-bg">
+        <textarea id="input" class="notebook-textarea" placeholder="Write here..."></textarea>
+        <img src="../../assets/notebook.png" id="notebook-bg">
+        <div class="left-content">
+            <div class="common-text user-feeling" id="type-one"></div>
+            <div id="emoji-set">
+                <img src="../../assets/smile.png" class="emojis">
+                <img src="../../assets/sad.png" class="emojis">
+                <img src="../../assets/meh.png" class="emojis">
+                <img src="../../assets/angry.png" class="emojis">
+            </div>
+            <p class="common-text quote-title" id="type-two"></p>
+            <p class="common-text quote" id="type-three"></p>
+        </div>
+    </div>
+    <div class="side-bar">
+        <div id="entry-background"></div>
+        <div class="header">
+            <p class="common-text entries-title">ENTRIES</p>
+            <img src="../../assets/updated-exit.png" class="exit" id="closeEntry">
+        </div>
+        <div class="dates">
+            <a href="#">December 2, 2015</a>
+            <a href="#">January 5, 2018</a>
+            <a href="#">July 15, 2025</a>
+        </div>
+    </div>
+    <div class="tab" id="toggleEntry">
+        <p class="common-text show-entry"">Show Entries</p>
+    </div>
+    <script src="journal.js"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+body {
+    background-image: url('../../assets/clean-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.common-text {
+    font-family: 'Micro 5', sans-serif;
+    font-size: 8em;
+    color: #132F55;
+}
+
+.logo {
+    font-size: 4em;
+    margin-left: 1rem;
+    margin-top: -0.5rem;
+}
+
+.top-elem {
+    display: flex;
+}
+
+.avatar{
+    margin-left: auto;
+    margin-right: 1rem;
+    margin-top: 0.6rem;
+    width: 60px;
+    height: 60px;
+}
+
+.top-elem a {
+    text-decoration: none;
+}
+
+/* MAIN CODE */
+
+#notebook-bg {
+    width: 1100px;
+    height: 600px;
+
+}
+
+.sub-bg {
+    margin-left: 15rem;
+    margin-top: -5rem;
+    z-index: 1;
+    position: absolute;
+}
+
+#input {
+    position: absolute;
+    display: block;
+    left: 56%;
+    margin-top: 5rem;
+    margin-right: 1rem;
+    width: 430px;
+    padding-bottom: 450px;
+    z-index: 2;
+    background: transparent;
+    border: none;
+    outline: none;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 24px,
+        #000000 25px);
+}
+
+/* LEFT CONTENT OF NOTEBOOK */
+
+.left-content {
+    margin-top: -35rem;
+}
+
+.user-feeling {
+    font-size: 3em;
+    margin-left: 5rem;
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+#emoji-set {
+    margin-left: 3rem;
+}
+
+#emoji-set:hover {
+    cursor: pointer;
+}
+
+.quote,
+.quote-title {
+    font-size: 3em;
+    margin-left: 7rem;
+}
+
+/* SIDE BAR CODE */
+
+.side-bar {
+    width: 200px;
+    height: 400px;
+    background-color: #93B7DA;
+    border: 15px solid #5380AC;
+    border-top: 4em solid #5380AC;
+    display: none;
+}
+
+.exit {
+    height: 30px;
+    width: 30px;
+    display: block;
+    margin-left: 10.5rem;
+    margin-top: -3.5rem;
+    position: fixed;
+}
+
+.exit:hover {
+    cursor: pointer;
+}
+
+.entries-title {
+    position: fixed;
+    font-size: 3em;
+    margin-top: -3.8rem;
+}
+
+.dates {
+    display: flex;
+    flex-direction: column;
+}
+
+.dates a {
+    font-family: 'Micro 5', sans-serif;
+    font-size: 2em;
+    color: #132F55;
+}
+
+.dates {
+    margin-top: 1.4rem;
+    margin-left: 1rem;
+}
+
+.quote-title {
+    margin-left: 6rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+body.chat-active .side-bar {
+    display: flex;
+}
+
+body.chat-active .sub-bg {
+    margin-right: 800px; /* same width as .chat-box */
+}
+
+.tab {
+    width: 140px;
+    height: 100px;
+    background-color:  #93B7DA;
+    border: 15px solid #5380AC;
+    margin-top: 10rem;
+}
+
+.tab:hover {
+    cursor: pointer;
+}
+
+.show-entry {
+    font-size: 3em;
+    width: 10%;
+    margin-left: 1rem;
+    margin-top: -0.1rem;
+}
+
+.emoji-selected {
+    border: 3px solid #132F55;
+    background-color: transparent;
+}
