@@ -128,3 +128,7 @@ input {
     align-items: center;
     position: relative;
 }
+
+.button-container a {
+    text-decoration: none;
+}

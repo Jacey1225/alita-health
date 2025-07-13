@@ -1,28 +1,41 @@
-const text = "WELCOME, USERNAME!";
-const speed = 100; // milliseconds per character
-let i = 0;
+// const text = "WELCOME, USERNAME!";
+// const speed = 100; // milliseconds per character
+// let i = 0;
 
-function typeWriter() {
-  if (i < text.length) {
-    document.getElementById("typewriter").textContent += text.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
+// function typeWriter() {
+//   if (i < text.length) {
+//     document.getElementById("typewriter").textContent += text.charAt(i);
+//     i++;
+//     setTimeout(typeWriter, speed);
+//   }
+// }
+
+// typeWriter();
+
+// // dashboard.js
+// window.onload = () => {
+//   const username = localStorage.getItem('username');
+//   const nameSpan = document.getElementById('username-span');
+//   if (username && nameSpan) {
+//     nameSpan.textContent = username.toUpperCase(); // Optional styling
+//   }
+// };
+
+
+window.onload = () => {
+  const username = localStorage.getItem('username') || 'Jacey';
+  const typewriterElement = document.getElementById('typewriter');
+  const fullText = `WELCOME, ${username.toUpperCase()}!`;
+  let i = 0;
+
+  function typeWriter() {
+    if (i < fullText.length) {
+      typewriterElement.textContent += fullText.charAt(i);
+      i++;
+      setTimeout(typeWriter, 100); // speed
+    }
   }
-}
 
-typeWriter();
+  typeWriter();
+};
 
-async function sendInput() {
-  const input = document.getElementById('userInput').value;
-
-  const response = await fetch('/get-response', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ message: input })
-  });
-
-  const data = await response.json();
-  document.getElementById('responseText').textContent = data.reply;
-}
