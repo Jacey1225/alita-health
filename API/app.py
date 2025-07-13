@@ -1,8 +1,8 @@
 import os
+import sys
 from flask import Flask, request, jsonify
 import pandas as pd
-import os
-import sys
+import traceback
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
@@ -16,8 +16,17 @@ from src.audio_chat import transcribe_audio
 # ========== 🔧 Setup ==========
 app = Flask(__name__)
 
-# Dummy row 
+# Add CORS headers for frontend requests
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    return response
+
+# FIX: Add "text input" column to dummy data
 dummy_row = {
+    "text input": [""],  # Add this line
     "Age": [28],
     "Gender": ["Male"],
     "Diagnosis": ["Generalized Anxiety Disorder"],
@@ -37,37 +46,91 @@ dummy_row = {
 }
 dummy_df = pd.DataFrame(dummy_row)
 
+# Try to initialize generator at startup
+try:
+    from src.get_text import GenerateText
+    generator = GenerateText()
+    print("✅ Generator initialized successfully")
+except Exception as e:
+    print(f"⚠️ Generator initialization failed: {e}")
+    generator = None
+
 # ========== 📡 ROUTES ==========
 
 @app.route("/")
 def home():
-    return "🧠 Alita API is running."
+    return jsonify({
+        "status": "🧠 Alita API is running",
+        "generator_status": "loaded" if generator else "failed"
+    })
 
 @app.route("/generate", methods=["POST"])
 def generate_response():
-    data = request.get_json()
-    message = data.get("message").strip()
-
-    if not message:
-        return jsonify({"error": "Missing message"}), 400
-
     try:
-        exc_params = dummy_df.copy()
+        print("🔄 Processing request to /generate")
+        data = request.get_json()
+        
+        if not data:
+            return jsonify({"error": "No JSON data provided"}), 400
+            
+        message = data.get("message", "").strip()
+        
+        if not message:
+            return jsonify({"error": "Missing or empty message"}), 400
 
-        # Your friend's generator handles generation & decoding
-        generator = GenerateText()
+        print(f"📩 Received message: {message}")
+
+        if generator is None:
+            return jsonify({
+                "error": "AI model not available",
+                "response": "I'm sorry, my AI model isn't loaded right now. Please try again later."
+            }), 503
+
+        params_df = dummy_df.copy()
+        params_df.loc[0, "text input"] = message
+        
+        exclusive_params = params_df.drop(columns=["text input"]).iloc[0].to_dict()
+        
+        print(f"🔧 Parameters prepared: {list(exclusive_params.keys())}")
+
         response_text = generator.generate(
             input_text=message,
-            exclusive_parameters=exc_params.iloc[0].to_dict()
+            exclusive_parameters=exclusive_params
         )
+
+        print(f"🤖 Generated response: {response_text}")
+
+        if response_text is None or str(response_text).strip() == "":
+            return jsonify({
+                "error": "Empty response generated",
+                "response": "I'm having trouble generating a response right now. Could you try rephrasing your question?"
+            }), 500
 
         return jsonify({
             "message": message,
-            "response": response_text
-        })
+            "response": response_text,
+            "status": "success"
+        }), 200
 
     except Exception as e:
-        return jsonify({"error": f"Generation failed: {str(e)}"}), 500
+        error_details = traceback.format_exc()
+        print(f"❌ Error in generate_response: {e}")
+        print(f"📝 Full traceback: {error_details}")
+        
+        return jsonify({
+            "error": f"Generation failed: {str(e)}",
+            "response": "I'm experiencing technical difficulties. Please try again."
+        }), 500
+
+# Add debugging endpoint
+@app.route("/debug", methods=["GET"])
+def debug():
+    return jsonify({
+        "generator_available": generator is not None,
+        "dummy_df_columns": list(dummy_df.columns),
+        "dummy_df_shape": dummy_df.shape,
+        "sample_data": dummy_df.iloc[0].to_dict()
+    })
 
 @app.route("/signup", methods=["POST"])
 def signup():
@@ -140,4 +203,7 @@ def transcribe_audio_route():
 
 # ========== 🏁 Run Server ==========
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    print("🚀 Starting Alita API...")
+    print(f"🌐 Frontend should connect to: http://localhost:8080")
+    print(f"🤖 Generator status: {'Loaded' if generator else 'Not available'}")
+    app.run(host="0.0.0.0", port=8080, debug=True)

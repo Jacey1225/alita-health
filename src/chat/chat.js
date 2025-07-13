@@ -49,29 +49,49 @@ async function sendMessage() {
   userDiv.textContent = `You: ${message}`;
   chatDisplay.appendChild(userDiv);
 
-  inputField.value = ''; // Clear input
+  inputField.value = '';
 
   try {
-    const response = await fetch('http://localhost:5000/generate', {
+    console.log('Sending request to:', 'http://localhost:5001/generate');
+    console.log('Message:', message);
+
+    const response = await fetch('http://localhost:5001/generate', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
       body: JSON.stringify({ message })
     });
 
+    console.log('Response status:', response.status);
+    console.log('Response ok:', response.ok);
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Response error:', errorText);
+      throw new Error(`HTTP ${response.status}: ${errorText}`);
+    }
+
     const data = await response.json();
+    console.log('Response data:', data);
+
+    if (data.error) {
+      throw new Error(data.error);
+    }
 
     const botDiv = document.createElement('div');
     botDiv.className = 'chat-message bot-msg';
-    botDiv.textContent = `ALITA: ${data.response}`;
+    botDiv.textContent = `ALITA: ${data.response || 'No response generated'}`;
     chatDisplay.appendChild(botDiv);
+    
   } catch (err) {
+    console.error('Fetch error details:', err);
     const errDiv = document.createElement('div');
     errDiv.className = 'chat-message bot-msg';
-    errDiv.textContent = `ALITA: Sorry, something went wrong.`;
+    errDiv.textContent = `ALITA: Sorry, something went wrong. ${err.message}`;
     chatDisplay.appendChild(errDiv);
-    console.error(err);
   }
 
-  // Scroll to bottom
   chatDisplay.scrollTop = chatDisplay.scrollHeight;
 }
