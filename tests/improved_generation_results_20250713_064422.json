@@ -1,0 +1,139 @@
+{
+  "timestamp": "20250713_064422",
+  "test_type": "improved_generation",
+  "total_tests": 6,
+  "successful_tests": 6,
+  "success_rate": 100.0,
+  "average_generation_time": 4.8930900891621905,
+  "average_quality_score": 4.416666666666667,
+  "average_advice_ratio": 0.15833333333333333,
+  "average_question_ratio": 0.0,
+  "detailed_results": [
+    {
+      "scenario": "Depression - High Severity - Specific Request",
+      "success": true,
+      "input": "I've been on Sertraline for 12 weeks but still feel severely depressed with poor sleep. What specific coping strategies can help me right now?",
+      "response": "It's clear you're going through something really difficult, while managing significant challenges. Continue working with your therapist on developing personalized coping strategies. Additional strategies: Start with just 5-10 minutes of gentle movement daily - even a short walk can help. Remember, consistency with your treatment plan is key to seeing improvements. You're not alone in this journey, and every small step matters.",
+      "generation_time": 5.951911926269531,
+      "analysis": {
+        "score": 7.5,
+        "advice_count": 1,
+        "question_count": 0,
+        "advice_ratio": 0.2,
+        "question_ratio": 0.0,
+        "actionable_count": 1
+      },
+      "patient_profile": {
+        "age": 35,
+        "gender": "Female",
+        "diagnosis": "Major Depressive Disorder",
+        "severity": 8
+      }
+    },
+    {
+      "scenario": "Anxiety - Practical Coping Request",
+      "success": true,
+      "input": "I'm having panic attacks at work and my Alprazolam isn't always available. What are some immediate techniques I can use to calm down?",
+      "response": "I can sense the weight of what you're experiencing, while managing significant challenges. Practice the 'body scan' technique to connect with physical sensations. Additional strategies: Practice stress reduction techniques like deep breathing or progressive muscle relaxation. You're not alone in this journey, and every small step matters.",
+      "generation_time": 4.7487499713897705,
+      "analysis": {
+        "score": 5.5,
+        "advice_count": 2,
+        "question_count": 0,
+        "advice_ratio": 0.5,
+        "question_ratio": 0.0,
+        "actionable_count": 1
+      },
+      "patient_profile": {
+        "age": 28,
+        "gender": "Male",
+        "diagnosis": "Generalized Anxiety Disorder",
+        "severity": 6
+      }
+    },
+    {
+      "scenario": "Sleep Issues - Direct Help Request",
+      "success": true,
+      "input": "I'm 68 years old and taking Melatonin but still can't sleep. What daily habits should I change to improve my sleep quality?",
+      "response": "I'm a little bit more than I'm doing the hard work. Remember, consistency with your treatment plan is key to seeing improvements. You're not alone in this journey, and every small step matters.",
+      "generation_time": 4.189096927642822,
+      "analysis": {
+        "score": 4.0,
+        "advice_count": 0,
+        "question_count": 0,
+        "advice_ratio": 0.0,
+        "question_ratio": 0.0,
+        "actionable_count": 0
+      },
+      "patient_profile": {
+        "age": 68,
+        "gender": "Female",
+        "diagnosis": "Insomnia",
+        "severity": 7
+      }
+    },
+    {
+      "scenario": "PTSD - Coping Strategy Request",
+      "success": true,
+      "input": "My EMDR therapy is helping but I still get triggered by flashbacks. What can I do when I feel a flashback starting?",
+      "response": "It's clear you're going through something really difficult, I'm encouraged by the progress you've made. Continue working with your therapist on developing personalized coping strategies. Additional strategies: Focus on sleep hygiene - consistent bedtime, cool dark room, no screens 1 hour before bed. You're not alone in this journey, and every small step matters.",
+      "generation_time": 5.813731670379639,
+      "analysis": {
+        "score": 5.5,
+        "advice_count": 1,
+        "question_count": 0,
+        "advice_ratio": 0.25,
+        "question_ratio": 0.0,
+        "actionable_count": 1
+      },
+      "patient_profile": {
+        "age": 24,
+        "gender": "Male",
+        "diagnosis": "PTSD",
+        "severity": 9
+      }
+    },
+    {
+      "scenario": "Depression - Exercise Motivation",
+      "success": true,
+      "input": "I know exercise helps depression but I have no energy or motivation. How can I start moving when everything feels impossible?",
+      "response": "It's clear you're going through something really difficult, I'm encouraged by the progress you've made. Continue working with your therapist on developing personalized coping strategies. You're not alone in this journey, and every small step matters.",
+      "generation_time": 4.6504950523376465,
+      "analysis": {
+        "score": 2.0,
+        "advice_count": 0,
+        "question_count": 0,
+        "advice_ratio": 0.0,
+        "question_ratio": 0.0,
+        "actionable_count": 0
+      },
+      "patient_profile": {
+        "age": 29,
+        "gender": "Male",
+        "diagnosis": "Major Depressive Disorder",
+        "severity": 7
+      }
+    },
+    {
+      "scenario": "Anxiety - Social Situations",
+      "success": true,
+      "input": "I avoid social situations because of my anxiety, but I'm lonely. What are some gradual steps to become more social again?",
+      "response": "I'm not alone in this journey, as you work toward wellness. Continue working with your therapist on developing personalized coping strategies. You're not alone in this journey, and every small step matters.",
+      "generation_time": 4.004554986953735,
+      "analysis": {
+        "score": 2.0,
+        "advice_count": 0,
+        "question_count": 0,
+        "advice_ratio": 0.0,
+        "question_ratio": 0.0,
+        "actionable_count": 0
+      },
+      "patient_profile": {
+        "age": 26,
+        "gender": "Female",
+        "diagnosis": "Social Anxiety Disorder",
+        "severity": 8
+      }
+    }
+  ]
+}

@@ -40,12 +40,10 @@ def home():
 def generate_response():
     data = request.get_json()
 
-    # === 1. Input validation ===
     message = data.get("message", "")
     if not message:
         return jsonify({"error": "Missing message"}), 400
 
-    # === 2. Prepare input ===
     try:
         input_data = dummy_df.copy()
         input_data.loc[0, "text input"] = message
