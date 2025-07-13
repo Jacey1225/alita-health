@@ -11,19 +11,23 @@ body {
     font-size: 4.5em;
     color: #132F55;
 }
+
 .avatar{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 90px;
-    height: 90px;
+    margin-left: auto;
+    margin-right: 1rem;
+    margin-top: -3.5rem;
+    width: 60px;
+    height: 60px;
 }
 
 .logo {
-    position: absolute;
-    top: -20px;
-    left: 30px;
-    font-size: 3.5em;
+    font-size: 4em;
+    margin-left: 1rem;
+    margin-top: -0.5rem;
+}
+
+.top-elem a {
+    text-decoration: none;
 }
 
 .core {
@@ -35,39 +39,30 @@ body {
 
 .box {
     width: 700px;
-    height: 650px;
+    height: 500px;
     background-color: #4d6d9c;
     padding: 20px;
-    margin-top: 110px;
-    margin-left: 720px;
+    margin-right: 2rem;
+    display: block;
+    margin-left: auto;
+    margin-top: -16rem;
     box-sizing: border-box;
     position: relative;
 }
 
 .small-box {
     width: 660px;
-    height: 550px; 
+    height: 400px; 
     background-color: #97B6E0;
     position: absolute;
-    top: 80px;
-    right: 20px;
+    top: 5rem;
     border: 10px solid #97B6E0;
     box-sizing: border-box;
 }
 
-.leave {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: -20px;
-    right: -10px;
-    background-image: url('../../assets/exit.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-}
 .text-box{
     background: #9decf8;
-    margin-top: 450px;
+    margin-top: 20.5rem;
 }
 .text{
     margin-top: -15px;
@@ -75,4 +70,99 @@ body {
 }
 .texting{
     margin-left: 10px;
+}
+
+#input {
+    padding-right: 53%;
+    background-color: transparent;
+    border: none;
+    font-size: 1.2em;
+    outline: none;
+    padding: 0.8rem 24rem 0.8rem 1rem; 
+}
+
+#input::placeholder {
+    font-family: 'Micro 5', sans-serif;
+    font-size: 2em;
+    color: #7ca9e9;
+}
+
+/* BREATHING EFFECT */
+
+.core {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.core img {
+    width: 250px;
+    height: 300px;
+    image-rendering: pixelated;
+}
+
+
+.ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    margin-left: -0.5rem;
+    opacity: 0;
+}
+
+.lighter-blue {
+    background: #a6e2d6;
+    transform: scale(1.5);
+    z-index: 3;
+    animation: lightRing 3s steps(1, end) infinite;
+    image-rendering: pixelated;
+}
+
+.dark-blue {
+    background: #85D1D4;
+    transform: scale(2);
+    z-index: 2;
+    animation: darkRing 3s steps(1, end) infinite;
+}
+
+.purple {
+    background: #97B6E0;
+    transform: scale(2.5);
+    z-index: 1;
+    animation: purpleRing 3s steps(1, end) infinite;
+}
+
+@keyframes lightRing {
+    0%, 24% { opacity: 1; }
+    25%, 74% { opacity: 1; }
+    85%, 100% { opacity: 0; }
+}
+
+@keyframes darkRing {
+    0%, 20% { opacity: 0; }
+    21%, 74% { opacity: 1; }
+    75%, 100% { opacity: 0; }
+}
+
+@keyframes purpleRing {
+    0%, 49% { opacity: 0; }
+    50%, 64% { opacity: 1; }
+    65%, 100% { opacity: 0; }
+}
+
+.circle-wrapper {
+    position: relative;
+    width: 120px;
+    height: 130px;
+    margin-right: auto;
+    margin-left: 17rem;
+    margin-top: 8rem;
+    transition: transform 0.3s ease;
 }
