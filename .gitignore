@@ -1,0 +1,40 @@
+# Virtual Environment
+venv/
+env/
+.env
+
+# Model files (too large for GitHub)
+model/
+*.pth
+*.pt
+*.bin
+*.safetensors
+
+# PyTorch/ML related large files
+torch/
+transformers/
+*.dylib
+*.so
+*.dll
+
+# System files
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# IDE files
+.vscode/
+.idea/
+
+# Data files
+data/*.csv
+data/*.json
+data/*.pkl
+
+# Logs
+*.log
+logs/
