@@ -33,7 +33,8 @@ body {
 }
 
 .subtext {
-    font-size: 2em;
+    font-size: 3em;
+    padding-right: 1rem;
 }
 
 .title,
@@ -41,6 +42,85 @@ body {
     text-align: center;
 }
 
+.option {
+    margin-top: -0.8rem;
+    font-size: 2em;
+}
+
+.option a {
+    color:  #132F55;
+}
+
 .title {
     margin-top: -35rem;
+}
+
+.username,
+.pass {
+    display: flex;
+    justify-content: center;
+    padding: 0.8rem;
+}
+
+.input-fields {
+    display: flex;
+    flex-direction: column;
+    margin-top: -7rem;
+}
+
+input {
+    background-color: #43a1a3;
+    font-size: 2em;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-left: -15rem;
+}
+
+.button-container:hover {
+    cursor: pointer;
+}
+
+#button-img {
+    width: 350px;
+    height: 140px;
+    display: block;
+    margin: auto 0;
+    margin-left: 15rem;
+    position: absolute;
+}
+
+.show-trans {
+    position: relative;
+    font-size: 3em;
+    text-align: center;
+    margin-left: 16rem;
+    margin-top: 2.5rem;
+}
+
+.wiggle {
+    display: inline-block;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.wiggle:hover {
+    animation: wiggle 0.4s ease-in-out;
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-4deg); }
+    50% { transform: rotate(4deg); }
+    75% { transform: rotate(-2deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.button-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
