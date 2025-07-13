@@ -2,6 +2,7 @@ body {
     background-image: url('../../assets/clean-bg.png');
     background-size: cover;
     background-repeat: no-repeat;
+    height: 100vh;
 }
 
 .common-text {
@@ -114,11 +115,14 @@ body {
     margin-top: 9rem;
 }
 
-#button-container {
+.button-container {
     display: flex;
     justify-content: center;
-    margin-left: 15rem;
-    margin-top: -2rem;
+    margin-left: -15rem;
+}
+
+.button-container:hover {
+    cursor: pointer;
 }
 
 .main-content {
@@ -134,14 +138,30 @@ body {
     transition: transform 0.3s ease;
 }
 
+#button-img {
+    width: 350px;
+    height: 100px;
+    margin-left: 42rem;
+    margin-top: -7rem;
+    position: absolute;
+}
+
+.show-trans {
+    position: relative;
+    font-size: 2em;
+    margin-left: 42.5rem;
+    margin-top: -5.2rem;
+}
+
 /* CHAT CODE */
 
 .chat-box {
     background: #93B7DA;
     width: 800px;
     height: 450px;
-    margin-top: -32rem;
+    margin-top: -35rem;
     margin-left: auto;
+    margin-right: 2rem;
     border: 15px solid #5380AC;
     border-top: 4em solid #5380AC;
     display: none; /* initially hidden */
@@ -155,8 +175,8 @@ body {
 
 .transcription {
     font-size: 3em;
-    margin-top: -3.5rem;
     margin-left: 18rem;
+    margin-top: -3.5rem;
 }
 
 .exit {
@@ -184,4 +204,29 @@ body.chat-active .main-content {
 
 .top-elem a {
     text-decoration: none;
+}
+
+.wiggle {
+    display: inline-block;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.wiggle:hover {
+    animation: wiggle 0.4s ease-in-out;
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-4deg); }
+    50% { transform: rotate(4deg); }
+    75% { transform: rotate(-2deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.button-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
