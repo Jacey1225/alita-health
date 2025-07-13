@@ -1,0 +1,140 @@
+2025-07-12 09:35:22,223 - ForwardPassTester - INFO - ============================================================
+2025-07-12 09:35:22,223 - ForwardPassTester - INFO - FORWARD PASS TESTER INITIALIZED
+2025-07-12 09:35:22,223 - ForwardPassTester - INFO - ============================================================
+2025-07-12 09:35:22,223 - ForwardPassTester - INFO - 🎯 Starting comprehensive forward pass test (batch_size=4)...
+2025-07-12 09:35:22,223 - ForwardPassTester - INFO - 🔄 Preparing SMALL test data (batch_size=4)...
+2025-07-12 09:35:22,863 - ForwardPassTester - INFO - ✅ DataProcessor initialized successfully
+2025-07-12 09:35:22,863 - ForwardPassTester - INFO - 📝 Processing text input...
+2025-07-12 09:35:23,126 - ForwardPassTester - INFO - ✅ Full dataset text processing complete:
+2025-07-12 09:35:23,126 - ForwardPassTester - INFO -    - Full Input IDs shape: torch.Size([2000, 150])
+2025-07-12 09:35:23,126 - ForwardPassTester - INFO -    - Full Attention mask shape: torch.Size([2000, 150])
+2025-07-12 09:35:23,126 - ForwardPassTester - INFO - 🔢 Processing numerical features...
+2025-07-12 09:35:46,536 - ForwardPassTester - INFO - ✅ Full dataset numerical processing complete:
+2025-07-12 09:35:46,536 - ForwardPassTester - INFO -    - Full Numerical features shape: torch.Size([2000, 16])
+2025-07-12 09:35:46,536 - ForwardPassTester - INFO - ✂️ Extracting small test subset (4 samples)...
+2025-07-12 09:35:46,537 - ForwardPassTester - INFO - ✅ Small test data prepared:
+2025-07-12 09:35:46,537 - ForwardPassTester - INFO -    - Test Input IDs shape: torch.Size([4, 150])
+2025-07-12 09:35:46,537 - ForwardPassTester - INFO -    - Test Attention mask shape: torch.Size([4, 150])
+2025-07-12 09:35:46,537 - ForwardPassTester - INFO -    - Test Numerical features shape: torch.Size([4, 16])
+2025-07-12 09:35:46,537 - ForwardPassTester - INFO -    - Memory reduction: 2000 → 4 samples
+2025-07-12 09:35:46,537 - ForwardPassTester - INFO - 📊 Sample test data:
+2025-07-12 09:35:46,540 - ForwardPassTester - INFO -    - First input_ids sample: tensor([   27,    31,    51,  1829, 18940,    11,   897,   924, 12643,     6])...
+2025-07-12 09:35:46,545 - ForwardPassTester - INFO -    - First numerical features: tensor([ 4.3000e+01, -2.5191e-02, -3.5704e-02,  1.0000e+01,  5.0000e+00,
+         8.0000e+00,  5.0000e+00, -2.4814e-02, -2.1248e-02,  4.1378e-02,
+         1.1000e+01,  9.0000e+00, -2.4896e-03,  7.0000e+00, -8.3114e-03,
+         6.6000e+01])
+2025-07-12 09:35:46,545 - ForwardPassTester - INFO - 🤖 Initializing model...
+2025-07-12 09:36:10,513 - ForwardPassTester - INFO - ✅ Model initialized successfully
+2025-07-12 09:36:10,516 - ForwardPassTester - INFO - 📈 Model information:
+2025-07-12 09:36:10,516 - ForwardPassTester - INFO -    - Total parameters: 224,186,752
+2025-07-12 09:36:10,516 - ForwardPassTester - INFO -    - Trainable parameters: 224,186,752
+2025-07-12 09:36:10,516 - ForwardPassTester - INFO - 🚀 Testing forward pass with 4 samples...
+2025-07-12 09:36:10,517 - ForwardPassTester - INFO - ⚡ Starting forward pass execution with batch size 4...
+2025-07-12 09:36:10,517 - ForwardPassTester - INFO -    - Input tensor shapes: torch.Size([4, 150]), torch.Size([4, 150]), torch.Size([4, 16])
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO - 📋 Model forward pass print statements:
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL: Shape of encoder_outputs: torch.Size([4, 150, 768])
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL: Shape of combined_input: torch.Size([4, 768])
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL: Expected shape: [batch_size, 768]
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL: Example Feature Output in Forward Passtensor([0.0000, 0.4196, 0.5289, 0.0000, 0.1403, 0.2839, 0.0000, 0.0000, 0.0000,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.1478, 0.1905, 0.2513, 0.0000, 0.0268, 0.0000, 0.1492, 0.3795, 0.0000,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.0177, 0.0000, 0.2132, 0.0000, 0.0000, 0.0000, 0.0000, 0.2282, 0.3883,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.5414, 0.5897, 0.0000, 0.6136, 0.0000, 0.1406, 0.0000,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.0000, 0.0483, 0.0000, 0.0000, 0.5840, 0.2108, 0.0000,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.1144, 0.0000, 0.7840, 0.0000, 0.5615, 0.0000, 1.1060, 0.0000,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.0500, 0.0000, 0.0000, 0.0000, 0.0384, 0.1511, 0.0000,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.2305, 0.0000, 0.0000, 0.0000, 0.0000, 0.0999, 0.0000, 0.0982, 0.0000,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         1.0568, 0.0000, 0.0773, 0.0000, 0.1962, 0.0000, 0.8340, 0.0000, 0.8328,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.0830, 0.2803, 0.0000, 0.1008, 1.0559, 0.0000, 0.0000,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0518, 0.0000, 0.0000, 0.0000, 0.4882, 0.0000, 0.0000, 0.6940,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.0000, 0.1200, 0.4197, 0.1380, 0.0000, 0.0000, 0.0000,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.1846, 0.0000, 0.0000, 0.0000, 0.0000, 0.1683, 0.0000, 0.2118, 0.0000,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.5095, 0.4528, 0.5092, 0.0000, 0.2033, 0.0000, 0.0000, 0.0000, 0.0000,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.4066, 0.4388, 0.0000, 0.0000, 0.1778, 0.0000, 0.4980, 0.0064, 1.1977,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.5496, 0.0000, 0.8145, 0.0000, 0.0000, 0.0000, 0.4818,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0148, 0.0000, 0.8161, 0.3424, 0.1883, 0.7426, 0.5493, 0.4665,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.1928, 0.0000, 0.0000, 0.0876, 0.6048, 0.0000, 0.0000, 0.9814, 0.0000,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.2014, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1253, 0.2399,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.1005, 0.0000, 0.0000, 0.5109, 0.0000, 0.0000, 0.7438, 0.1362,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.0854, 0.0000, 0.2585, 0.8116, 0.0000, 0.0000, 0.0000, 0.0785, 0.6795,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.2173, 0.5318, 0.1053, 0.2665, 0.3530, 0.0000, 0.0000, 0.6225, 0.2402,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.1881, 0.4316, 0.0000, 0.4979, 0.0000, 0.0000, 0.2086, 0.0000,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.3033, 0.0000, 0.6600, 0.0000, 0.0000, 0.0243, 0.3719, 0.0428, 0.0000,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.2975, 0.0000, 0.1033, 0.0000, 0.2628, 0.0000, 0.0000, 0.0000, 0.0196,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.1749, 0.4121, 0.0519, 0.0421, 0.2359, 0.0000, 0.0000, 0.0000, 0.0000,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.0000, 0.2326, 0.0000, 0.0800, 0.0000, 0.6183, 0.0000,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.1766, 0.0784, 0.8130, 0.0000, 0.0000, 0.0000, 0.0523, 0.0000, 0.0000,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.2764, 0.0000, 0.8521, 0.0000, 0.0309, 0.0000, 0.2042, 0.1372,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.5318, 0.0000, 0.0000, 0.2979, 0.3695, 0.0000, 0.0000, 0.2412, 0.4305,
+2025-07-12 09:36:11,336 - ForwardPassTester - INFO -    MODEL:         0.5175, 0.0000, 0.8245, 0.3622, 0.0000, 0.2819, 0.0000, 0.0000, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.2303, 0.2353, 0.5090, 0.0000, 0.0055, 0.6325, 0.0000, 0.2434, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.0000, 0.1395, 0.0088, 0.5737, 0.0000, 1.0250, 0.3383,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.2509, 0.0000, 0.4115, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 1.1410, 0.0000, 0.0000, 0.6817, 0.0000, 0.2037, 0.0094,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.0000, 0.0000, 0.2777, 0.3609, 0.0000, 0.0000, 0.9337,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.3069, 0.2932, 0.0000, 0.0000, 0.7126, 0.2518, 0.0000, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0052, 0.0000, 0.1420, 0.0000, 0.1685, 0.0000, 0.2152, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.7284, 0.3967, 0.0000, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.4542, 0.1423, 0.0000, 0.1047, 0.6851, 0.0000, 0.0000, 0.2407, 0.3096,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0408, 0.0000, 0.0000, 0.0000, 0.0000, 0.1682, 0.0127, 0.0000, 0.1660,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.1819, 0.3045, 0.1828, 0.0000, 0.0000, 0.0000, 0.0518,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.9758, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1133, 0.0000, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.0000, 0.0000, 0.0414, 0.3138, 0.3295, 0.3380, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.5169, 0.0000, 0.7440, 0.0000, 0.0000, 0.0000, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.3357, 0.0000, 0.0000, 0.1230, 0.1394, 0.0000, 0.0786, 0.0000, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0762, 0.0000, 0.4730, 0.0000, 0.0000, 0.9001, 0.2167, 0.0000, 0.7376,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.2371, 0.5263, 0.0000, 0.1263, 0.2414, 0.0000, 0.0000, 0.3627,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.5485, 0.2028, 0.0000, 0.3975, 0.0723, 0.1734, 0.2226, 0.1313,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.2307, 0.0000, 0.3955, 0.0000, 0.0000, 0.0619, 0.0000, 0.3582, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0881, 0.3857, 0.0000, 0.0000, 0.0000, 0.9068, 0.0000, 0.2500, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0321, 0.0000, 0.0000, 0.0000, 0.2715, 0.5001, 0.0000, 0.1489, 0.5119,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         1.2226, 0.0000, 0.2089, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0020, 0.0000, 0.0000, 0.0000, 0.5444, 0.0000, 0.0000, 0.0000, 0.1068,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.3411, 0.0000, 0.0088, 0.0923, 0.0000, 0.2486, 0.5983, 0.0551, 0.1889,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.0177, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.9204,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.8468, 0.3839, 0.0897, 0.0000, 0.7374, 0.0000, 0.0000, 0.7519,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.4682, 0.7375, 0.0000, 0.0000, 0.0000, 0.5293, 0.0000, 0.1875, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.5102, 0.4026, 0.0000, 0.0000, 0.0000, 0.3737, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0376, 0.0000, 0.3547, 0.5528, 0.0000, 1.0855, 0.3508, 0.0000, 0.8547,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.3822, 0.0000, 0.6441, 0.0000, 0.1733, 0.0000, 0.4440, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.9005, 0.0599, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.4357, 0.1292, 0.0000, 0.3261, 0.0353, 0.0000, 0.0000, 0.1528,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.1306, 0.0000, 0.2580, 0.0000, 0.0000, 0.0181, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.0000, 0.1891, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.6022, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.1175, 0.0000, 0.1861, 0.0000, 0.5077, 0.0576, 0.3266, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.2850, 0.0000, 0.0000, 0.3792, 0.0000, 0.0000, 0.0000, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.3890, 0.2169, 0.4947, 0.0000, 0.0000, 0.1845, 0.2126, 0.0000, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.6329, 0.0000, 0.0000, 0.0000, 0.0000, 0.2811, 0.3368, 0.0440, 0.5737,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1031, 0.0000, 0.4657, 0.0873,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.7681, 0.5934, 0.0000, 0.0000, 0.4390, 0.3699, 1.0701, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.0000, 0.4766, 0.0000, 0.4471, 0.0823, 0.0000, 0.3465,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.5717, 0.0445, 0.0000, 0.0000, 0.0929, 0.0000, 0.2402, 0.0000, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.1530, 0.3706, 0.0000, 0.2909, 0.0000, 0.3053, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0302, 0.0265, 0.1983, 0.0000, 0.0000, 0.7360, 0.0000, 0.0000, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.0000, 0.8293, 0.6021, 0.0841, 0.0000, 0.0000, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.5082, 0.0000, 0.0000, 0.0000, 0.5186, 0.0000, 0.0000, 0.6551,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.0000, 0.0000, 0.4761, 0.0496, 0.0476, 0.3815, 0.2769,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.2255, 0.2821, 0.0000, 0.0000, 0.5708, 0.9053, 0.6791, 0.1724, 0.0000,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.7617, 0.0000, 0.1118, 0.0511, 0.0000, 0.0000, 0.0000, 0.3739, 0.0381,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.3945, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.3086, 0.1625,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.0000, 0.2904, 0.8854, 0.4433, 0.0073, 0.0000, 0.6142,
+2025-07-12 09:36:11,337 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.3724, 0.1946, 0.2443, 0.1799, 0.0000, 0.0000, 0.0000, 0.1123,
+2025-07-12 09:36:11,338 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.6722, 0.6555, 0.0298, 0.0000, 0.3866, 0.0490, 0.1271,
+2025-07-12 09:36:11,338 - ForwardPassTester - INFO -    MODEL:         0.0000, 0.0000, 0.0000], grad_fn=<SelectBackward0>)
+2025-07-12 09:36:11,338 - ForwardPassTester - INFO -    MODEL: Shape of combined_output: torch.Size([4, 150, 768])
+2025-07-12 09:36:11,338 - ForwardPassTester - INFO -    MODEL: Expected shape: (4, 150, 768)
+2025-07-12 09:36:11,338 - ForwardPassTester - INFO -    MODEL: Example Combined Output in Forward Pass: tensor([[-0.0283,  0.5421,  0.4344,  ..., -0.0949, -0.3124, -0.3413],
+2025-07-12 09:36:11,338 - ForwardPassTester - INFO -    MODEL:         [-0.0326,  0.1746,  0.5091,  ...,  0.0812, -0.0230, -0.1545],
+2025-07-12 09:36:11,338 - ForwardPassTester - INFO -    MODEL:         [-0.0955,  0.2085,  0.1591,  ..., -0.1734, -0.6046, -0.1288],
+2025-07-12 09:36:11,338 - ForwardPassTester - INFO -    MODEL:         ...,
+2025-07-12 09:36:11,338 - ForwardPassTester - INFO -    MODEL:         [-0.4608,  0.7377,  0.4249,  ...,  0.3451,  0.0443, -0.2482],
+2025-07-12 09:36:11,338 - ForwardPassTester - INFO -    MODEL:         [-0.4608,  0.7377,  0.4249,  ...,  0.3451,  0.0443, -0.2482],
+2025-07-12 09:36:11,338 - ForwardPassTester - INFO -    MODEL:         [-0.4608,  0.7377,  0.4249,  ...,  0.3451,  0.0443, -0.2482]],
+2025-07-12 09:36:11,338 - ForwardPassTester - INFO -    MODEL:        grad_fn=<SelectBackward0>)
+2025-07-12 09:36:11,338 - ForwardPassTester - INFO -    MODEL: Error during final layer processing: local variable 'decoded_output' referenced before assignment
+2025-07-12 09:36:11,338 - ForwardPassTester - WARNING - ⚠️ Forward pass returned None
+2025-07-12 09:36:11,338 - ForwardPassTester - INFO - 🎉 ALL TESTS COMPLETED SUCCESSFULLY!
+2025-07-12 09:36:11,338 - ForwardPassTester - INFO - 💡 Test used only 4 samples out of full dataset to avoid memory issues
+2025-07-12 09:36:11,338 - ForwardPassTester - INFO - ============================================================
+2025-07-12 09:36:11,338 - ForwardPassTester - INFO - TEST SESSION ENDED
+2025-07-12 09:36:11,338 - ForwardPassTester - INFO - ============================================================

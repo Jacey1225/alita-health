@@ -1,0 +1,183 @@
+2025-07-12 09:39:28,911 - ForwardPassTester - INFO - ============================================================
+2025-07-12 09:39:28,911 - ForwardPassTester - INFO - FORWARD PASS TESTER INITIALIZED
+2025-07-12 09:39:28,911 - ForwardPassTester - INFO - ============================================================
+2025-07-12 09:39:28,911 - ForwardPassTester - INFO - 🎯 Starting comprehensive forward pass test (batch_size=4)...
+2025-07-12 09:39:28,911 - ForwardPassTester - INFO - 🔄 Preparing SMALL test data (batch_size=4)...
+2025-07-12 09:39:29,521 - ForwardPassTester - INFO - ✅ DataProcessor initialized successfully
+2025-07-12 09:39:29,521 - ForwardPassTester - INFO - 📝 Processing text input...
+2025-07-12 09:39:29,783 - ForwardPassTester - INFO - ✅ Full dataset text processing complete:
+2025-07-12 09:39:29,783 - ForwardPassTester - INFO -    - Full Input IDs shape: torch.Size([2000, 150])
+2025-07-12 09:39:29,783 - ForwardPassTester - INFO -    - Full Attention mask shape: torch.Size([2000, 150])
+2025-07-12 09:39:29,783 - ForwardPassTester - INFO - 🔢 Processing numerical features...
+2025-07-12 09:39:51,325 - ForwardPassTester - INFO - ✅ Full dataset numerical processing complete:
+2025-07-12 09:39:51,325 - ForwardPassTester - INFO -    - Full Numerical features shape: torch.Size([2000, 16])
+2025-07-12 09:39:51,325 - ForwardPassTester - INFO - ✂️ Extracting small test subset (4 samples)...
+2025-07-12 09:39:51,326 - ForwardPassTester - INFO - ✅ Small test data prepared:
+2025-07-12 09:39:51,326 - ForwardPassTester - INFO -    - Test Input IDs shape: torch.Size([4, 150])
+2025-07-12 09:39:51,326 - ForwardPassTester - INFO -    - Test Attention mask shape: torch.Size([4, 150])
+2025-07-12 09:39:51,326 - ForwardPassTester - INFO -    - Test Numerical features shape: torch.Size([4, 16])
+2025-07-12 09:39:51,326 - ForwardPassTester - INFO -    - Memory reduction: 2000 → 4 samples
+2025-07-12 09:39:51,326 - ForwardPassTester - INFO - 📊 Sample test data:
+2025-07-12 09:39:51,328 - ForwardPassTester - INFO -    - First input_ids sample: tensor([   27,    31,    51,  1829, 18940,    11,   897,   924, 12643,     6])...
+2025-07-12 09:39:51,332 - ForwardPassTester - INFO -    - First numerical features: tensor([ 4.3000e+01, -2.5191e-02, -3.5704e-02,  1.0000e+01,  5.0000e+00,
+         8.0000e+00,  5.0000e+00, -2.4814e-02, -2.1248e-02,  4.1378e-02,
+         1.1000e+01,  9.0000e+00, -2.4896e-03,  7.0000e+00, -8.3114e-03,
+         6.6000e+01])
+2025-07-12 09:39:51,333 - ForwardPassTester - INFO - 🤖 Initializing model...
+2025-07-12 09:40:13,742 - ForwardPassTester - INFO - ✅ Model initialized successfully
+2025-07-12 09:40:13,745 - ForwardPassTester - INFO - 📈 Model information:
+2025-07-12 09:40:13,745 - ForwardPassTester - INFO -    - Total parameters: 224,186,752
+2025-07-12 09:40:13,745 - ForwardPassTester - INFO -    - Trainable parameters: 224,186,752
+2025-07-12 09:40:13,745 - ForwardPassTester - INFO - 🚀 Testing forward pass with 4 samples...
+2025-07-12 09:40:13,745 - ForwardPassTester - INFO - ⚡ Starting forward pass execution with batch size 4...
+2025-07-12 09:40:13,745 - ForwardPassTester - INFO -    - Input tensor shapes: torch.Size([4, 150]), torch.Size([4, 150]), torch.Size([4, 16])
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO - 📋 Model forward pass print statements:
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL: Shape of encoder_outputs: torch.Size([4, 150, 768])
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL: Shape of combined_input: torch.Size([4, 768])
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL: Expected shape: [batch_size, 768]
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL: Example Feature Output in Forward Passtensor([0.0000e+00, 0.0000e+00, 1.4040e-01, 3.2059e-01, 0.0000e+00, 1.0567e-01,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 3.4247e-02, 5.0892e-01, 3.9508e-01, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 3.8821e-01, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         7.8317e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00, 3.6198e-02, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 9.9668e-01, 6.0940e-01, 0.0000e+00, 1.2637e-01,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         5.8638e-01, 0.0000e+00, 0.0000e+00, 2.4206e-01, 0.0000e+00, 3.8356e-01,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 3.8490e-01, 7.0332e-01, 0.0000e+00, 8.9870e-01,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 3.7658e-01, 1.3804e+00, 6.9169e-01,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 4.3681e-02, 1.2102e-01, 0.0000e+00, 4.1530e-02,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 5.1241e-01, 5.0804e-01, 0.0000e+00, 6.3299e-01, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 1.5903e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         9.9154e-02, 1.6562e-01, 0.0000e+00, 2.2781e-01, 3.9672e-01, 8.4713e-01,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         2.8644e-02, 0.0000e+00, 0.0000e+00, 0.0000e+00, 1.3058e-02, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         1.9014e-01, 6.8746e-01, 0.0000e+00, 2.9509e-01, 3.0985e-01, 6.7783e-01,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 5.9025e-01, 1.2545e+00, 7.9449e-02, 1.6697e-01,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         2.6334e-02, 6.7579e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         1.6471e-01, 0.0000e+00, 5.7145e-01, 0.0000e+00, 5.2083e-01, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         3.4731e-01, 0.0000e+00, 3.3758e-01, 1.3742e-01, 4.4653e-01, 2.9332e-01,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 7.4689e-01, 2.4083e-01, 6.4813e-01, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 1.7954e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 8.6646e-02, 8.4721e-01, 0.0000e+00, 1.9219e-01, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 6.5750e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00, 1.0598e-02,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         3.4666e-01, 0.0000e+00, 2.6924e-01, 2.9248e-01, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         1.3225e-02, 2.7240e-01, 0.0000e+00, 0.0000e+00, 5.2334e-01, 8.3419e-02,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 1.1237e-02,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 9.4265e-01, 0.0000e+00, 0.0000e+00, 2.5183e-02,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         1.6200e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00, 2.2694e-01, 2.6563e-02,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 3.8930e-01, 1.2313e-02, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         4.3550e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 3.9161e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00, 1.0475e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 1.9926e-01, 0.0000e+00, 5.2506e-01, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         1.3926e+00, 4.6340e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         6.7801e-01, 1.7582e-02, 4.3491e-01, 3.6923e-02, 0.0000e+00, 6.1715e-01,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 2.0847e-01, 0.0000e+00, 3.8046e-01, 5.2819e-02,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 6.5934e-01, 5.5754e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         8.9305e-01, 2.6460e-01, 6.1713e-02, 0.0000e+00, 0.0000e+00, 2.1404e-01,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         6.0465e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00, 1.2387e-01, 2.3345e-01,
+2025-07-12 09:40:14,556 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 3.3455e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         2.6805e-01, 0.0000e+00, 0.0000e+00, 9.8563e-02, 5.5431e-03, 7.3027e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 5.4685e-01, 1.7358e-01, 1.9687e-01, 0.0000e+00, 6.0860e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         7.7020e-02, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         5.8047e-01, 1.9315e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00, 2.9751e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         1.8170e-01, 2.9018e-02, 4.4992e-01, 0.0000e+00, 0.0000e+00, 1.0116e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 5.2331e-02, 0.0000e+00, 2.2690e-01, 1.5874e-01, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 2.6364e-01, 0.0000e+00, 0.0000e+00, 1.2981e-01, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         5.5996e-01, 4.4773e-02, 0.0000e+00, 0.0000e+00, 4.2092e-01, 2.9088e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         2.5443e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00, 9.0288e-01, 2.8154e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 4.7119e-02, 1.6448e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 8.1836e-01, 4.2504e-01, 3.5542e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         5.1649e-01, 0.0000e+00, 4.9936e-01, 6.6962e-01, 6.6962e-01, 3.5792e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         3.1348e-01, 4.5682e-01, 0.0000e+00, 0.0000e+00, 7.7036e-01, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 9.9543e-02, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 8.5408e-02, 6.1519e-02, 0.0000e+00, 3.2234e-01, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 8.6017e-02, 1.4713e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         1.7441e-01, 8.3654e-01, 1.8366e-01, 0.0000e+00, 2.6803e-01, 3.8088e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 7.8651e-01, 0.0000e+00, 4.1623e-02,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 3.3586e-01, 1.8061e-01, 5.8488e-02, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 1.4908e-01, 0.0000e+00, 1.1654e-01, 4.4566e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         5.0535e-01, 0.0000e+00, 5.4598e-01, 1.5175e-01, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 4.3617e-02, 5.3240e-01, 0.0000e+00, 0.0000e+00, 1.1874e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 6.1615e-02, 3.2172e-01, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 7.6285e-01, 0.0000e+00, 0.0000e+00, 3.0988e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         4.0017e-01, 2.8231e-01, 0.0000e+00, 0.0000e+00, 3.0106e-01, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         4.2571e-01, 2.5446e-01, 5.9777e-01, 4.1582e-01, 2.5598e-01, 8.1108e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 1.2458e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 5.8130e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         1.4049e+00, 1.1972e-01, 0.0000e+00, 9.3028e-02, 4.2222e-01, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 1.3099e-01, 5.9337e-01, 7.5232e-01, 0.0000e+00, 3.5464e-02,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         5.1378e-01, 0.0000e+00, 0.0000e+00, 4.2657e-01, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         3.5696e-01, 0.0000e+00, 0.0000e+00, 4.1091e-01, 0.0000e+00, 1.4167e-02,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         3.1690e-01, 5.9027e-01, 1.7839e-01, 0.0000e+00, 0.0000e+00, 4.0755e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 2.2717e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00, 1.8781e-02,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 2.3342e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00, 8.1984e-02,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 7.6300e-02, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 7.0393e-02, 3.9870e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 1.1950e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 6.4226e-01, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 9.2652e-03, 1.5786e-01, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         5.2573e-02, 0.0000e+00, 0.0000e+00, 0.0000e+00, 6.0999e-01, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 3.8557e-01, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 4.2083e-01, 0.0000e+00, 5.9780e-01, 3.6907e-01, 6.3754e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 7.9609e-02,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 1.0754e-01, 6.8614e-04, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 8.9511e-01, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         6.0200e-01, 1.9671e-02, 0.0000e+00, 3.7963e-01, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         8.7098e-02, 0.0000e+00, 0.0000e+00, 0.0000e+00, 4.1532e-01, 7.7850e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         1.6791e-01, 0.0000e+00, 1.1153e+00, 0.0000e+00, 6.1240e-02, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         9.1392e-01, 0.0000e+00, 2.0962e-01, 9.5213e-01, 0.0000e+00, 1.8136e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         3.9831e-01, 0.0000e+00, 0.0000e+00, 6.2530e-01, 0.0000e+00, 7.0896e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         4.3118e-02, 6.9317e-01, 0.0000e+00, 0.0000e+00, 3.9284e-01, 2.5276e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         1.3090e-02, 0.0000e+00, 0.0000e+00, 3.1777e-01, 0.0000e+00, 4.3536e-01,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         4.7186e-01, 0.0000e+00, 2.5394e-01, 5.3716e-01, 5.3072e-01, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         4.8882e-02, 0.0000e+00, 0.0000e+00, 7.2273e-01, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         9.4002e-02, 0.0000e+00, 3.2161e-02, 5.0905e-01, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,557 - ForwardPassTester - INFO -    MODEL:         5.0061e-01, 0.0000e+00, 0.0000e+00, 9.4044e-02, 0.0000e+00, 3.7386e-01,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 8.8266e-01, 0.0000e+00, 6.8581e-01,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 2.3778e-01, 0.0000e+00, 0.0000e+00, 6.7384e-02, 0.0000e+00,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         6.4373e-01, 0.0000e+00, 1.7407e-02, 7.8811e-01, 0.0000e+00, 2.0559e-01,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 9.0129e-01, 3.0182e-01, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         5.0943e-01, 9.5113e-01, 1.1542e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         9.6730e-01, 1.0704e+00, 1.3133e-01, 4.5930e-01, 0.0000e+00, 1.9201e-01,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 1.4788e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 3.6490e-01, 2.2421e-01,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 2.7038e-01, 2.1656e-02, 5.8453e-01, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         3.2529e-02, 0.0000e+00, 0.0000e+00, 5.2227e-03, 4.6300e-01, 0.0000e+00,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 1.9831e-01, 0.0000e+00, 0.0000e+00, 4.8721e-01,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         1.9302e-01, 0.0000e+00, 0.0000e+00, 9.8721e-02, 3.0174e-01, 0.0000e+00,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 1.0431e+00,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         5.7810e-01, 1.9336e-01, 3.0871e-01, 0.0000e+00, 7.2659e-01, 0.0000e+00,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         6.4190e-01, 0.0000e+00, 5.8319e-01, 0.0000e+00, 8.1654e-01, 0.0000e+00,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 7.4205e-01, 0.0000e+00, 1.5396e-01,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         5.3173e-01, 0.0000e+00, 1.3928e-01, 0.0000e+00, 0.0000e+00, 4.9159e-01,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00, 4.3227e-01, 0.0000e+00,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 9.2530e-01, 3.3788e-01, 6.4636e-01, 0.0000e+00,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 9.0638e-02, 1.0938e-01, 0.0000e+00,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         4.9169e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00, 2.6193e-01, 0.0000e+00,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 1.2196e-01, 0.0000e+00, 3.4438e-02, 7.1238e-01,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 3.0862e-01, 0.0000e+00, 5.7200e-01,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         4.0198e-01, 2.0743e-01, 6.1729e-01, 1.6391e-01, 5.7394e-01, 0.0000e+00,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 5.8981e-02, 5.2696e-01, 0.0000e+00, 0.0000e+00, 8.1389e-02,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         5.8553e-01, 0.0000e+00, 6.3415e-01, 0.0000e+00, 8.0459e-01, 0.0000e+00,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         8.0991e-01, 2.7915e-01, 0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         0.0000e+00, 0.0000e+00, 0.0000e+00, 2.7599e-01, 3.7483e-01, 0.0000e+00],
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:        grad_fn=<SelectBackward0>)
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL: Shape of combined_output: torch.Size([4, 150, 768])
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL: Expected shape: (4, 150, 768)
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL: Example Combined Output in Forward Pass: tensor([[-0.0283,  0.1225,  0.0459,  ...,  0.1811,  0.0624, -0.3413],
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         [-0.0326, -0.2451,  0.1206,  ...,  0.3572,  0.3518, -0.1545],
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         [-0.0955, -0.2111, -0.2295,  ...,  0.1026, -0.2297, -0.1288],
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         ...,
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         [-0.4608,  0.3181,  0.0364,  ...,  0.6211,  0.4191, -0.2482],
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         [-0.4608,  0.3181,  0.0364,  ...,  0.6211,  0.4191, -0.2482],
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:         [-0.4608,  0.3181,  0.0364,  ...,  0.6211,  0.4191, -0.2482]],
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL:        grad_fn=<SelectBackward0>)
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO -    MODEL: Error during final layer processing: local variable 'next_label' referenced before assignment
+2025-07-12 09:40:14,558 - ForwardPassTester - WARNING - ⚠️ Forward pass returned None
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO - 🎉 ALL TESTS COMPLETED SUCCESSFULLY!
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO - 💡 Test used only 4 samples out of full dataset to avoid memory issues
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO - ============================================================
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO - TEST SESSION ENDED
+2025-07-12 09:40:14,558 - ForwardPassTester - INFO - ============================================================
