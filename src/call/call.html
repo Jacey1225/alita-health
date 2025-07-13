@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Call Page</title>
     <link rel="stylesheet" href="call.css">
     <link href="https://fonts.googleapis.com/css2?family=Micro+5&display=swap" rel="stylesheet">
 </head>
@@ -12,16 +12,29 @@
         <p class="common-text logo">ALITA</p>
         <img src="../../assets/female.png" id="avatar">
     </div>
-    <div class="container">
-        <div class="ring lighter-blue"></div>
-        <div class="ring dark-blue"></div>
-        <div class="ring purple"></div>
-        <div class="core">
-            <img src="../../assets/naked-alita.png" alt="Core Circle" />
+    <div class="main-content">
+        <div class="circle-wrapper">
+            <div class="ring lighter-blue"></div>
+            <div class="ring dark-blue"></div>
+            <div class="ring purple"></div>
+            <div class="core">
+                <img src="../../assets/naked-alita.png" alt="Core Circle">
+            </div>
+        </div>
+        <div id="mic-container">
+            <img src="../../assets/mic.png" id="mic">
         </div>
     </div>
-    <div id="mic-container">
-        <img src="../../assets/mic.png" id="mic">
+    <div id="button-container">
+        <button id="toggleChat" class="hidden">Show Chat</button>
+    </div>
+    <div class="chat-box">
+        <div id="header-container">
+            <div id="header">
+                <p class="common-text transcription">Transcription</p>
+                <img src="../../assets/exit.png" class="exit" id="closeChat">
+            </div>
+        </div>
     </div>
     <script src="call.js"></script>
 </body>

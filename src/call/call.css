@@ -7,18 +7,15 @@ body {
 .common-text {
     font-family: 'Micro 5', sans-serif;
     font-size: 8em;
-}
-
-.container {
-    position: relative;
-    width: 128px;
-    height: 128px;
+    color: #132F55;
 }
 
 .core {
     position: absolute;
-    margin-left: 33rem;
-    margin-top: -4rem;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
     z-index: 3;
@@ -30,13 +27,14 @@ body {
     image-rendering: pixelated;
 }
 
+
 .ring {
     position: absolute;
-    margin-top: 1rem;
-    margin-left: 36.5rem;
+    inset: 0;
+    border-radius: 50%;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    margin-left: -0.5rem;
     opacity: 0;
 }
 
@@ -108,5 +106,71 @@ body {
 #mic-container {
     display: flex;
     justify-content: center;
-    margin-top: 10rem;
+    padding-left: 1rem;
+    margin-top: 9rem;
+}
+
+#button-container {
+    display: flex;
+    justify-content: center;
+    margin-left: 15rem;
+    margin-top: -2rem;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    transition: margin-right 0.3s ease;
+}
+
+.circle-wrapper {
+    position: relative;
+    width: 120px;
+    height: 130px;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+/* CHAT CODE */
+
+.chat-box {
+    background: #93B7DA;
+    width: 800px;
+    height: 450px;
+    margin-top: -34rem;
+    margin-left: auto;
+    border: 15px solid #5380AC;
+    border-top: 4em solid #5380AC;
+    display: none; /* initially hidden */
+    flex-shrink: 0;
+    flex-direction: column;
+}
+
+#header {
+    display: flex;
+}
+
+.transcription {
+    font-size: 3em;
+    margin-top: -3.5rem;
+    margin-left: 18rem;
+}
+
+.exit {
+    height: 70px;
+    width: 70px;
+    margin-top: -4.3rem;
+    margin-left: 16rem;
+}
+
+body.chat-active .chat-box {
+    display: flex;
+}
+
+body.chat-active .main-content {
+    margin-right: 800px; /* same width as .chat-box */
+}
+
+.hidden {
+    display: none;
 }

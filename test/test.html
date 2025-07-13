@@ -6,95 +6,128 @@
   <title>Breathing Pixel Ring</title>
   <style>
     body {
-        background: #cfe5e5;
+        margin: 0;
+        font-family: sans-serif;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        image-rendering: pixelated;
+        transition: all 0.3s ease;
     }
 
-    .container {
-        position: relative;
-        width: 128px;
-        height: 128px;
+    .content {
+        flex: 1;
+        padding: 20px;
+        transition: margin-right 0.3s ease;
+        text-align: center;
     }
 
-    .core {
-        position: absolute;
-        width: 100%;
+    .chat-box {
+        width: 300px;
+        background-color: #f5f5f5;
+        border-left: 1px solid #ccc;
+        display: none; /* initially hidden */
+        flex-shrink: 0;
+        flex-direction: column;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .chat-header {
+        background-color: #ddd;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+    }
+
+    .chat-body {
+        padding: 10px;
         height: 100%;
-        z-index: 3;
+        overflow-y: auto;
     }
 
-    .core img {
-        width: 200px;
-        height: 250px;
-        margin-left: 0.4rem;
-        image-rendering: pixelated;
+    /* When chat is active */
+    body.chat-active .chat-box {
+        display: flex;
     }
 
-    .ring {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        opacity: 0;
+    body.chat-active .content {
+        margin-right: 300px; /* same width as .chat-box */
     }
 
-    .lighter-blue {
-        background: #a6e2d6;
-        transform: scale(0.8);
-        z-index: 3;
-        animation: lightRing 3s steps(1, end) infinite;
-        image-rendering: pixelated;
+    .chat-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
-    .dark-blue {
-        background: #85D1D4;
-        transform: scale(1.1);
-        z-index: 2;
-        animation: darkRing 3s steps(1, end) infinite;
+    .message {
+        padding: 10px 15px;
+        border-radius: 15px;
+        font-size: 16px;
+        max-width: 75%;           /* limits width on wide screens */
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        line-height: 1.4;
     }
 
-    .purple {
-        background: #97B6E0;
-        transform: scale(1.4);
-        z-index: 1;
-        animation: purpleRing 3s steps(1, end) infinite;
+    /* Bot message - aligned left */
+    .message.bot {
+        background-color: #f0f0f0;
+        align-self: flex-start;
     }
 
-    @keyframes lightRing {
-        0%, 24% { opacity: 1; }
-        25%, 74% { opacity: 1; }
-        85%, 100% { opacity: 0; }
+    /* User message - aligned right */
+    .message.user {
+        background-color: #dcf8c6;
+        align-self: flex-end;
     }
-
-    @keyframes darkRing {
-        0%, 20% { opacity: 0; }
-        21%, 74% { opacity: 1; }
-        75%, 100% { opacity: 0; }
-    }
-
-    @keyframes purpleRing {
-        0%, 49% { opacity: 0; }
-        50%, 64% { opacity: 1; }
-        65%, 100% { opacity: 0; }
-    }
-
-    
   </style>
 </head>
 <body>
-    <div class="container">
-        <div class="ring lighter-blue"></div>
-        <div class="ring dark-blue"></div>
-        <div class="ring purple"></div>
-        <div class="core">
-            <img src="../assets/naked-alita.png" alt="Core Circle" />
+    <button id="toggleChat">Show Chat</button>
+
+    <div class="content" id="mainContent">
+        <h1>Main Page Content</h1>
+        <p>This is your main content area.</p>
+    </div>
+
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <span>Chatbot</span>
+            <button id="closeChat">✕</button>
+        </div>
+        <div class="chat-container">
+            <div class="message bot">
+                Hello! How can I help you today?
+            </div>
+            <div class="message user">
+                I want to know
+            </div>
         </div>
     </div>
+
+    <script>
+        const toggleBtn = document.getElementById('toggleChat');
+        const closeBtn = document.getElementById('closeChat');
+
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.add('chat-active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            document.body.classList.remove('chat-active');
+        });
+
+        const container = document.querySelector('.chat-container');
+
+        function addMessage(text, sender = 'bot') {
+            const div = document.createElement('div');
+            div.className = `message ${sender}`;
+            div.textContent = text;
+            container.appendChild(div);
+        }
+
+    </script>
 </body>
 </html>
