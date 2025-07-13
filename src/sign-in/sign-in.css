@@ -1,0 +1,33 @@
+body {
+    background-image: url('../../assets/clean-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.common-text {
+    font-family: 'Micro 5', sans-serif;
+    font-size: 8em;
+    color: #132F55;
+}
+
+.logo {
+    font-size: 4em;
+    margin-left: 1rem;
+    margin-top: -0.5rem;
+}
+
+.top-elem {
+    display: flex;
+}
+
+/* MAIN CONTENT CODE */
+
+#sign-in-bg {
+    height: 600px;
+}
+
+.sub-bg {
+    display: flex;
+    justify-content: center;
+    margin-top: -5rem;
+}
