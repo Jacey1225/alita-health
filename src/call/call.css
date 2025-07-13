@@ -180,9 +180,9 @@ body {
 }
 
 .exit {
-    height: 70px;
-    width: 70px;
-    margin-top: -4.3rem;
+    height: 40px;
+    width: 40px;
+    margin-top: -3.2rem;
     margin-left: 16rem;
 }
 
@@ -229,4 +229,19 @@ body.chat-active .main-content {
     flex-direction: column;
     align-items: center;
     position: relative;
+}
+
+.typewriter {
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #00ffcc;
+    text-align: center;
+    margin-top: -2rem;
+    animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
 }
