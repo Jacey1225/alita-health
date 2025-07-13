@@ -15,7 +15,7 @@ function typeWriter() {
 
 toggleBtn.addEventListener('click', () => {
     document.body.classList.add('chat-active');
-    toggleBtn.classList.add('hidden');
+    toggleBtn.classList.remove('hidden');
     document.getElementById("typewriter").textContent = "";
     i = 0;
     typeWriter();
