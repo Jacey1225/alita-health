@@ -1,0 +1,108 @@
+body {
+    background-image: url('../../assets/clean-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.common-text {
+    font-family: 'Micro 5', sans-serif;
+    font-size: 8em;
+    color: #132F55;
+}
+
+.logo {
+    font-size: 4em;
+    margin-left: 1rem;
+    margin-top: -0.5rem;
+}
+
+.top-elem {
+    display: flex;
+}
+
+#avatar {
+    width: 60px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* MAIN CODE */
+
+#notebook-bg {
+    width: 1100px;
+    height: 600px;
+
+}
+
+.sub-bg {
+    margin-left: 15rem;
+    margin-top: -5rem;
+    z-index: 1;
+    position: absolute;
+}
+
+#input {
+    position: absolute;
+    display: block;
+    left: 56%;
+    margin-top: 5rem;
+    margin-right: 1rem;
+    width: 430px;
+    padding-bottom: 450px;
+    z-index: 2;
+    background: transparent;
+    border: none;
+    outline: none;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 24px,
+        #000000 25px);
+}
+
+/* LEFT CONTENT OF NOTEBOOK */
+
+.left-content {
+    margin-top: -35rem;
+}
+
+.user-feeling {
+    font-size: 3em;
+    margin-left: 5rem;
+}
+
+#emoji-set {
+    margin-left: 3rem;
+}
+
+.quote {
+    font-size: 3em;
+    margin-left: 8rem;
+}
+
+/* SIDE BAR CODE */
+
+.side-bar {
+    width: 200px;
+    height: 400px;
+    background-color: #93B7DA;
+    border: 15px solid #5380AC;
+    border-top: 4em solid #5380AC;
+
+}
+
+.exit {
+    height: 30px;
+    width: 30px;
+}
+
+.entries-title {
+    font-size: 3em;
+}
+
+.dates {
+    display: flex;
+    flex-direction: column;
+}
