@@ -21,7 +21,6 @@ class SignUp:
             self.df.at[0, column_name] = item
     
     def save(self):
-        """Save the updated DataFrame to the CSV file."""
         self.df.to_csv('data/users.csv', index=False)
         print(f"User '{self.username}' data saved successfully.")
 

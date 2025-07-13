@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify
 import pandas as pd
 from src.get_text import GenerateText
 from src.handle_users.handle_users import SignUp, Login
+from src.journaling import UpdateJournal
 
 # ========== 🔧 Setup ==========
 app = Flask(__name__)
@@ -88,6 +89,16 @@ def login():
             return jsonify({"error": "User data not found"}), 404
     else:
         return jsonify({"error": "Invalid credentials"}), 401
+    
+@app.route("/update_journal", methods=["POST"])
+def update_journal():
+    data = request.get_json()
+    username = data.get("username")
+    entry = data.get("entry")
+    handler = UpdateJournal(username, entry)
+    handler.add_entry()
+    handler.save()
+    return jsonify({"message": f"Journal updated for user '{username}'."}), 200
 
 # ========== 🏁 Run Server ==========
 if __name__ == "__main__":
