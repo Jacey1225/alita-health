@@ -20,22 +20,22 @@ class GenerateText(nn.Module):
                 data = {
                     "text input": [input_text],
                     "desired response": [""],  
-                    "Age": exclusive_parameters["Age"], 
-                    "Gender": exclusive_parameters["Gender"],
-                    "Diagnosis": exclusive_parameters["Diagnosis"],
-                    "Symptom Severity (1-10)": exclusive_parameters["Symptom Severity (1-10)"],
-                    "Mood Score (1-10)": exclusive_parameters["Mood Score (1-10)"],
-                    "Sleep Quality (1-10)": exclusive_parameters["Sleep Quality (1-10)"],
-                    "Physical Activity (hrs/week)": exclusive_parameters["Physical Activity (hrs/week)"],
-                    "Medication": exclusive_parameters["Medication"],
-                    "Therapy Type": exclusive_parameters["Therapy Type"], 
-                    "Treatment Start Date": exclusive_parameters["Treatment Start Date"],
-                    "Treatment Duration (weeks)": exclusive_parameters["Treatment Duration (weeks)"],
-                    "Stress Level (1-10)": exclusive_parameters["Stress Level (1-10)"],
-                    "Outcome": exclusive_parameters["Outcome"],
-                    "Treatment Progress (1-10)": exclusive_parameters["Treatment Progress (1-10)"],
-                    "AI-Detected Emotional State": exclusive_parameters["AI-Detected Emotional State"],
-                    "Adherence to Treatment (%)": exclusive_parameters["Adherence to Treatment (%)"]
+                    "Age": exclusive_parameters["Age"] if "Age" in exclusive_parameters else None, 
+                    "Gender": exclusive_parameters["Gender"] if "Gender" in exclusive_parameters else None,
+                    "Diagnosis": exclusive_parameters["Diagnosis"] if "Diagnosis" in exclusive_parameters else None,
+                    "Symptom Severity (1-10)": exclusive_parameters["Symptom Severity (1-10)"] if "Symptom Severity (1-10)" in exclusive_parameters else None,
+                    "Mood Score (1-10)": exclusive_parameters["Mood Score (1-10)"] if "Mood Score (1-10)" in exclusive_parameters else None,
+                    "Sleep Quality (1-10)": exclusive_parameters["Sleep Quality (1-10)"] if "Sleep Quality (1-10)" in exclusive_parameters else None,
+                    "Physical Activity (hrs/week)": exclusive_parameters["Physical Activity (hrs/week)"] if "Physical Activity (hrs/week)" in exclusive_parameters else None,
+                    "Medication": exclusive_parameters["Medication"] if "Medication" in exclusive_parameters else None,
+                    "Therapy Type": exclusive_parameters["Therapy Type"] if "Therapy Type" in exclusive_parameters else None,
+                    "Treatment Start Date": exclusive_parameters["Treatment Start Date"] if "Treatment Start Date" in exclusive_parameters else None,
+                    "Treatment Duration (weeks)": exclusive_parameters["Treatment Duration (weeks)"] if "Treatment Duration (weeks)" in exclusive_parameters else None,
+                    "Stress Level (1-10)": exclusive_parameters["Stress Level (1-10)"] if "Stress Level (1-10)" in exclusive_parameters else None,
+                    "Outcome": exclusive_parameters["Outcome"] if "Outcome" in exclusive_parameters else None,
+                    "Treatment Progress (1-10)": exclusive_parameters["Treatment Progress (1-10)"] if "Treatment Progress (1-10)" in exclusive_parameters else None,
+                    "AI-Detected Emotional State": exclusive_parameters["AI-Detected Emotional State"] if "AI-Detected Emotional State" in exclusive_parameters else None,
+                    "Adherence to Treatment (%)": exclusive_parameters["Adherence to Treatment (%)"] if "Adherence to Treatment (%)" in exclusive_parameters else None
                 }
                 processor = DataProcessor(data)
                 model_setup = ModelSetup(processor)
