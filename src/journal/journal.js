@@ -17,7 +17,7 @@ function typeWriter(id, text, speed, delay = 0) {
 
 typeWriter("type-one", "How are you feeling today?", 100);
 typeWriter("type-two", "Your quote of the day is:", 100, 3000);
-typeWriter("type-three", "'Are you lost babygirl?'", 100, 6000);
+typeWriter("type-three", "'You are enough'", 100, 6000);
 
 const toggleBtn = document.getElementById('toggleEntry');
 const closeBtn = document.getElementById('closeEntry');
